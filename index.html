@@ -1,0 +1,1242 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>아메리카, 문화가 만나는 자리</title>
+<meta name="description" content="중학교 사회(지리) [9사(지리)05-02] 아메리카의 인구 특징과 문화 혼종성 — 모둠 대항 지도 찍기 게임">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* 지도책(아틀라스) 느낌: 종이색 배경, 남색 글씨, 테라코타 강조색, 얇은 선과 부드러운 그림자 */
+:root {
+  color-scheme: light;
+  --bg: #F4F1EA; --paper: #FBF9F4; --card: #FFFFFF; --soft: #F3EFE6; --line: #E2DCCF; --line-d: #CFC6B4;
+  --ink: #172A3A; --muted: #5C6977; --navy: #172A3A; --navy-2: #21405A;
+  --accent: #D9572B; --accent-d: #B9451C; --accent-soft: #FBE7DE;
+  --gold: #E3A73A; --gold-soft: #FBF1DC; --teal: #2A8C82;
+  --sea: #BCD8E4; --land-am: #F3E8CB; --land: #E6E1D6; --land-line: #A8996F;
+  --ok: #1E7F5C; --ok-soft: #E1F2EA; --bad: #C2402C; --bad-soft: #FBE5E0;
+  --shadow: 0 1px 2px rgb(23 42 58 / .06), 0 6px 20px rgb(23 42 58 / .07);
+  --f-game: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --f-body: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16.5px; line-height: 1.6; letter-spacing: -0.01em; word-break: keep-all; }
+[hidden] { display: none !important; }
+h1, h2, h3, h4 { font-family: var(--f-game); font-weight: 800; margin: 0; line-height: 1.25; letter-spacing: -0.03em; text-wrap: balance; }
+p { margin: 0; }
+button { font: inherit; }
+button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* 상단 바 */
+.top { position: sticky; top: 0; z-index: 20; background: var(--navy); color: #fff; }
+.top-in { max-width: 1240px; margin: 0 auto; padding: 10px 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.brand { font-family: var(--f-game); font-weight: 800; font-size: 19px; letter-spacing: -0.03em; cursor: pointer; background: none; border: 0; color: #fff; padding: 0; }
+.brand span, .brand small { color: var(--gold); font-weight: 600; font-size: 12px; letter-spacing: .14em; }
+.top-info { margin-left: auto; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.hud { display: inline-flex; align-items: center; gap: 6px; background: rgb(255 255 255 / .08); border-radius: 8px; padding: 4px 10px; font-size: 14px; font-weight: 600; color: rgb(255 255 255 / .8); }
+.hud b { color: #fff; font-weight: 800; font-variant-numeric: tabular-nums; }
+.hud svg { width: 15px; height: 15px; }
+main { max-width: 1240px; margin: 0 auto; padding: 22px 16px 60px; }
+
+/* 공통 */
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); padding: clamp(18px, 3vw, 30px); display: grid; gap: 16px; }
+.card h2 { font-size: clamp(24px, 3vw, 30px); }
+.kicker { font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--accent); }
+.lead { color: var(--muted); max-width: 66ch; }
+.hint { font-size: 14px; color: var(--muted); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--f-game); font-weight: 700; font-size: 16px; background: var(--navy); color: #fff; border: 1px solid var(--navy); border-radius: 10px; padding: 10px 20px; cursor: pointer; text-decoration: none; transition: background .15s, transform .1s; }
+.btn:hover { background: var(--navy-2); }
+.btn:active:not(:disabled) { transform: translateY(1px); }
+.btn.ghost { background: #fff; color: var(--ink); border-color: var(--line-d); }
+.btn.ghost:hover { background: var(--soft); }
+.btn.gold, .btn.big { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.gold:hover, .btn.big:hover { background: var(--accent-d); }
+.btn.mint { background: var(--teal); border-color: var(--teal); color: #fff; }
+.btn.big { font-size: 18px; padding: 14px 24px; width: 100%; border-radius: 12px; }
+.btn.small { font-size: 14px; padding: 6px 12px; border-radius: 8px; }
+.btn:disabled { background: #E7E3DA; color: #9A9789; border-color: #E7E3DA; cursor: not-allowed; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.spread { justify-content: space-between; }
+input[type="text"], textarea, select { font: inherit; font-size: 16px; color: var(--ink); background: #fff; border: 1px solid var(--line-d); border-radius: 10px; padding: 10px 12px; width: 100%; }
+input[type="text"]:focus, textarea:focus, select:focus { border-color: var(--navy); outline: none; box-shadow: 0 0 0 3px rgb(23 42 58 / .12); }
+textarea { min-height: 80px; resize: vertical; line-height: 1.55; }
+textarea.code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12.5px; min-height: 110px; }
+label.f { display: grid; gap: 6px; font-weight: 700; font-size: 15px; }
+label.f span.sub { font-weight: 400; color: var(--muted); font-size: 13.5px; }
+.notice { background: var(--gold-soft); border: 1px solid #EBD5A6; border-radius: 12px; padding: 12px 16px; font-weight: 500; }
+.toast { font-size: 15px; color: var(--ok); font-weight: 700; }
+.err { font-size: 15px; color: var(--bad); font-weight: 700; }
+.codebox { display: grid; gap: 8px; }
+details > summary { cursor: pointer; }
+
+/* 첫 화면 */
+.title-screen { position: relative; overflow: hidden; border-radius: 20px; padding: clamp(24px, 5vw, 56px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 240px); gap: clamp(16px, 4vw, 48px); align-items: center; color: #fff;
+  background-color: var(--navy);
+  background-image: linear-gradient(rgb(255 255 255 / .05) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / .05) 1px, transparent 1px), radial-gradient(120% 90% at 100% 100%, #2D5872 0%, transparent 60%);
+  background-size: 48px 48px, 48px 48px, auto; }
+.title-screen .hero-art { order: 2; }
+@media (max-width: 640px) { .title-screen { grid-template-columns: 1fr; } .title-screen .hero-art { order: 0; max-width: 150px; } }
+.hero-art { width: 100%; max-width: 240px; height: auto; justify-self: center; }
+@media (prefers-reduced-motion: no-preference) { .hero-art .pin { animation: bob 2.6s ease-in-out infinite; } @keyframes bob { 50% { transform: translateY(-6px); } } }
+.title-text { display: grid; gap: 16px; }
+.badge { justify-self: start; font-size: 13px; font-weight: 700; letter-spacing: .04em; color: var(--gold); border: 1px solid rgb(227 167 58 / .5); padding: 4px 12px; border-radius: 999px; }
+.title-text h1 { font-size: clamp(38px, 6.4vw, 66px); font-weight: 900; letter-spacing: -0.045em; line-height: 1.08; color: #fff; }
+.title-text h1 em { font-style: normal; color: var(--gold); }
+.title-text p { font-size: 17px; color: rgb(255 255 255 / .78); max-width: 46ch; }
+.how3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 640px) { .how3 { grid-template-columns: 1fr; } }
+.how { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 14px; align-items: start; }
+.how .hn { grid-row: 1 / 3; font-size: 26px; font-weight: 900; color: var(--accent); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.how .hn::before { content: "0"; }
+.how b { font-weight: 800; font-size: 17px; }
+.how span:last-child { font-size: 14px; color: var(--muted); }
+.modes { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; }
+@media (max-width: 760px) { .modes { grid-template-columns: 1fr; } }
+.mode { text-align: left; border: 1px solid var(--line); background: var(--card); border-radius: 16px; box-shadow: var(--shadow); padding: 20px 22px; cursor: pointer; display: grid; gap: 4px; color: var(--ink); transition: transform .15s, box-shadow .15s; }
+.mode:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgb(23 42 58 / .06), 0 12px 28px rgb(23 42 58 / .1); }
+.mode b { font-weight: 800; font-size: 21px; letter-spacing: -0.03em; }
+.mode span { font-size: 14px; color: var(--muted); }
+.mode.play { background: var(--accent); border-color: var(--accent); color: #fff; }
+.mode.play b { font-size: 28px; }
+.mode.play b::after { content: " →"; }
+.mode.play span { color: rgb(255 255 255 / .85); }
+
+/* 게임 방법 */
+.rules { max-width: 860px; margin: 0 auto; gap: 18px; }
+.rule-count { font-size: 14px; font-weight: 800; color: var(--teal); background: #E3F1EF; padding: 4px 12px; border-radius: 999px; font-variant-numeric: tabular-nums; }
+.rule-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.rule-steps li { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 16px 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); transition: opacity .2s, border-color .2s, background .2s; }
+.rule-steps li.now { background: #fff; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.rule-steps li.later { opacity: .4; }
+.rule-steps li.later p { display: none; }
+.rule-steps li.done { background: #F2F8F6; border-color: #CFE5E0; }
+.rule-steps li.done .hn { color: var(--teal); }
+.rule-steps .hn { font-size: 26px; font-weight: 900; color: var(--accent); line-height: 1.15; font-variant-numeric: tabular-nums; align-self: start; }
+.rule-steps .hn::before { content: "0"; }
+.rule-steps b { font-size: 17.5px; font-weight: 800; }
+.rule-steps p { color: #34465A; font-size: 15.5px; margin-top: 2px; }
+.rule-steps li.ex p > span { display: block; margin-top: 8px; }
+.rule-steps p b { font-size: inherit; font-weight: 800; color: var(--ink); }
+.rule-steps li.ex p > span.ex-ans { display: flex; }
+.rule-steps em { font-style: normal; font-weight: 700; color: var(--accent-d); white-space: nowrap; }
+.okbtn { display: inline-flex; align-items: center; gap: 6px; border: 1.5px solid var(--line-d); background: #fff; color: var(--muted); border-radius: 999px; padding: 7px 14px 7px 10px; font-size: 14px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+.okbtn svg { width: 18px; height: 18px; border-radius: 50%; padding: 2px; background: var(--soft); color: #B9B2A2; }
+li.now .okbtn { border-color: var(--accent); color: var(--accent-d); }
+li.now .okbtn:hover { background: var(--accent-soft); }
+li.done .okbtn { border-color: var(--teal); background: var(--teal); color: #fff; cursor: default; }
+li.done .okbtn svg { background: rgb(255 255 255 / .25); color: #fff; }
+li.later .okbtn { cursor: not-allowed; }
+@media (max-width: 600px) { .rule-steps li { grid-template-columns: auto minmax(0, 1fr); } .okbtn { grid-column: 2; justify-self: start; } }
+.ex-clue { font-size: 16px; line-height: 1.7; color: var(--ink); background: var(--gold-soft); border-left: 3px solid var(--gold); border-radius: 4px 10px 10px 4px; padding: 10px 14px; }
+.ex-clue mark { background: none; font-weight: 800; box-shadow: inset 0 -0.45em 0 rgb(227 167 58 / .35); color: inherit; }
+.ex-ans { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.ex-ans > span:first-child { font-size: 13px; font-weight: 800; color: var(--muted); margin-right: 4px; }
+.ex-ans .rchip { background: var(--c); border-color: var(--c); color: #fff; cursor: default; }
+.ex-ans .rchip i { background: #fff; }
+.ex-notes { font-size: 14.5px; color: #34465A; }
+
+/* 진행판 */
+.board-wrap { background: var(--navy); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); }
+.board-wrap svg { display: block; width: 100%; height: auto; }
+.node { cursor: default; }
+.node.current { cursor: pointer; }
+.node.current:focus-visible { outline: none; }
+.node.current:focus-visible .face { stroke: #fff; }
+@media (prefers-reduced-motion: no-preference) {
+  .node.current .pulse { animation: pulse 1.8s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes pulse { from { transform: scale(1); opacity: .8; } to { transform: scale(1.5); opacity: 0; } }
+  .node.just .face { animation: pop .6s cubic-bezier(.2, 1.6, .4, 1); transform-box: fill-box; transform-origin: center; }
+  @keyframes pop { from { transform: scale(.6); } to { transform: none; } }
+}
+.stage-foot { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+.stage-foot .btn { min-width: 240px; width: auto; }
+
+/* 게임 화면 */
+.game { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(320px, 1fr); gap: 18px; align-items: start; }
+@media (max-width: 900px) { .game { grid-template-columns: 1fr; } }
+.mapbox { position: relative; background: var(--sea); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; min-width: 0; }
+.mapbox svg { display: block; width: 100%; height: auto; touch-action: none; cursor: crosshair; user-select: none; }
+.mapbox .country { fill: var(--land); stroke: #C7BFAE; stroke-width: .5; vector-effect: non-scaling-stroke; }
+.mapbox .country.am { fill: var(--land-am); stroke: var(--land-line); stroke-width: .8; }
+.mapbox .city circle.hit { fill: transparent; stroke: none; }
+.mapbox .city circle.dot { fill: #fff; stroke: var(--ink); stroke-opacity: .65; stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+.mapbox .city text { display: none; font-family: var(--f-body); font-weight: 700; fill: var(--ink); paint-order: stroke; stroke: #fff; stroke-width: 3.5px; vector-effect: non-scaling-stroke; pointer-events: none; }
+.mapbox.named .city text { display: block; }
+.mapbox .area { fill: var(--gold); fill-opacity: .16; stroke: #B07B17; stroke-width: 2; stroke-dasharray: 8 6; vector-effect: non-scaling-stroke; pointer-events: none; }
+.mapbox .clabels text { font-family: var(--f-body); font-weight: 700; fill: #6E6248; fill-opacity: .85; letter-spacing: .02em; pointer-events: none; paint-order: stroke; stroke: rgb(255 255 255 / .55); stroke-width: 2.5px; vector-effect: non-scaling-stroke; }
+.mapbox .clabels text.small { display: none; }
+.mapbox.named .clabels text.small { display: block; }
+.mapbox .graticule { fill: none; stroke: #fff; stroke-opacity: .45; stroke-width: .5; vector-effect: non-scaling-stroke; }
+.map-tools { position: absolute; right: 10px; top: 10px; display: grid; gap: 6px; }
+.map-tools button { width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--line-d); background: #fff; color: var(--ink); font-size: 20px; font-weight: 600; cursor: pointer; line-height: 1; box-shadow: 0 1px 3px rgb(23 42 58 / .12); }
+.map-tools button:hover { background: var(--soft); }
+.map-msg { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); background: rgb(23 42 58 / .88); color: #fff; border-radius: 999px; padding: 6px 16px; font-size: 14.5px; font-weight: 600; pointer-events: none; white-space: nowrap; }
+.map-fail { padding: 40px 20px; text-align: center; color: var(--ink); background: #fff; }
+.tip { position: absolute; pointer-events: none; background: var(--navy); color: #fff; font-size: 13.5px; padding: 5px 10px; border-radius: 8px; white-space: nowrap; transform: translate(-50%, calc(-100% - 12px)); z-index: 3; }
+.ctip { position: absolute; z-index: 4; width: 270px; max-width: calc(100% - 16px); background: #fff; color: var(--ink); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 8px 24px rgb(23 42 58 / .18); padding: 12px 14px; font-size: 13.5px; line-height: 1.55; pointer-events: none; display: grid; gap: 4px; }
+.ctip .ct-img { margin: -12px -14px 6px; border-radius: 11px 11px 0 0; overflow: hidden; background: var(--soft); }
+.ctip .ct-img img { display: block; width: 100%; height: 140px; object-fit: cover; opacity: 0; transition: opacity .25s; }
+.ctip .ct-img.on img { opacity: 1; }
+.ctip .ct-img figcaption { font-size: 11px; color: var(--muted); padding: 4px 10px; }
+.ctip > b { font-size: 16px; font-weight: 800; }
+.ctip .ct-c { font-size: 12.5px; font-weight: 700; color: var(--accent); margin-top: -4px; }
+.ctip .ct-r { font-size: 12.5px; font-weight: 600; color: var(--muted); }
+.ctip .ct-n { margin-top: 4px; padding-top: 6px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); }
+.ctip .ct-n b { color: var(--ink); margin-right: 4px; }
+.mapbox .city { cursor: pointer; }
+.layers { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.layers .lab { font-size: 14px; font-weight: 800; margin-right: 4px; }
+.lchip { border: 1px solid var(--line-d); background: #fff; color: var(--ink); border-radius: 999px; padding: 4px 12px; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+.lchip:hover { border-color: var(--c, var(--ink)); }
+.lchip[aria-pressed="true"] { background: var(--c, var(--ink)); border-color: var(--c, var(--ink)); color: #fff; }
+
+.panel { display: grid; gap: 12px; align-content: start; min-width: 0; }
+.qcard { background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); padding: 20px; display: grid; gap: 14px; }
+.qhead { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.stage-no { font-size: 12.5px; font-weight: 700; letter-spacing: .12em; color: var(--muted); margin-left: auto; }
+.cat { font-size: 13px; font-weight: 700; padding: 3px 10px; border-radius: 6px; background: var(--soft); color: var(--ink); }
+.boss-tag { font-size: 13px; font-weight: 700; padding: 3px 10px; border-radius: 6px; background: var(--accent-soft); color: var(--accent-d); }
+.qclue { font-size: 17.5px; line-height: 1.75; font-weight: 500; }
+.hintrow { display: flex; gap: 6px; flex-wrap: wrap; }
+.hbtn { border: 1px dashed var(--line-d); background: #fff; color: var(--ink); border-radius: 8px; padding: 6px 12px; font-size: 14px; font-weight: 600; cursor: pointer; }
+.hbtn:hover:not(:disabled) { border-color: var(--gold); background: var(--gold-soft); }
+.hbtn:disabled { opacity: .45; cursor: not-allowed; }
+.hbtn.open { border-style: solid; border-color: #EBD5A6; background: var(--gold-soft); opacity: 1; cursor: default; }
+.hintlist { display: grid; gap: 6px; }
+.hintlist p { background: var(--gold-soft); border-left: 3px solid var(--gold); border-radius: 4px 8px 8px 4px; padding: 8px 12px; font-size: 15px; }
+.hintlist p b { font-weight: 800; margin-right: 8px; color: #9A6A12; }
+.task { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; display: grid; gap: 10px; }
+.task h3 { font-size: 17px; display: flex; gap: 10px; align-items: center; }
+.task .sn { width: 26px; height: 26px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-size: 14px; font-weight: 800; flex: none; }
+.task.done .sn { background: var(--teal); }
+.rootchips { display: flex; flex-wrap: wrap; gap: 8px; }
+.rchip { border: 1.5px solid var(--line-d); background: #fff; color: var(--ink); border-radius: 999px; padding: 7px 16px; font-size: 15.5px; font-weight: 700; cursor: pointer; display: inline-flex; gap: 8px; align-items: center; transition: background .12s, border-color .12s; }
+.rchip:hover { border-color: var(--c); }
+.rchip i { width: 10px; height: 10px; border-radius: 50%; background: var(--c); }
+.rchip[aria-pressed="true"] { background: var(--c); border-color: var(--c); color: #fff; }
+.rchip[aria-pressed="true"] i { background: #fff; }
+.rchip.ok { background: var(--ok-soft); border-color: #BFE0D0; color: var(--ok); }
+.rchip.bad { background: var(--bad-soft); border-color: #F0C5BC; color: var(--bad); text-decoration: line-through; }
+.rchip.miss { border-style: dashed; color: var(--muted); }
+span.rchip { cursor: default; }
+
+.clear-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); padding: 22px 20px; display: grid; gap: 12px; text-align: center; justify-items: center; }
+.clear-title { font-size: 13px; font-weight: 800; letter-spacing: .2em; color: var(--accent); }
+.stars { display: flex; gap: 4px; }
+.stars svg { width: 38px; height: 38px; }
+@media (prefers-reduced-motion: no-preference) { .stars svg.on { animation: starpop .5s cubic-bezier(.2, 1.6, .4, 1) backwards; } .stars svg.on:nth-child(2) { animation-delay: .15s; } .stars svg.on:nth-child(3) { animation-delay: .3s; } @keyframes starpop { from { transform: scale(0) rotate(-40deg); } } }
+.answer-name { font-size: 28px; font-weight: 900; letter-spacing: -0.04em; line-height: 1.15; }
+.answer-name small { display: block; font-size: 14.5px; font-weight: 500; letter-spacing: 0; color: var(--muted); margin-top: 4px; }
+.pts-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; width: 100%; }
+.pts-row div { background: var(--soft); border-radius: 10px; padding: 8px 4px; display: grid; }
+.pts-row small { font-size: 12px; color: var(--muted); font-weight: 600; }
+.pts-row b { font-weight: 800; font-size: 20px; font-variant-numeric: tabular-nums; }
+.pts-row .total { background: var(--navy); color: #fff; }
+.pts-row .total small { color: var(--gold); }
+.explain { font-size: 15px; line-height: 1.75; text-align: left; color: #2B3B4A; }
+.mini-legend { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; font-size: 13px; color: var(--muted); }
+.mini-legend span { display: inline-flex; gap: 6px; align-items: center; }
+@media (prefers-reduced-motion: no-preference) { .flowline.draw { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: draw 1.4s ease-out forwards; } @keyframes draw { to { stroke-dashoffset: 0; } } }
+
+/* 결과 */
+.stamps { display: flex; flex-wrap: wrap; gap: 10px; }
+.stamps svg { width: 108px; height: 108px; }
+.big-score { font-size: clamp(48px, 8vw, 76px); font-weight: 900; letter-spacing: -0.05em; color: var(--accent); line-height: 1; font-variant-numeric: tabular-nums; }
+.res-table { border-collapse: collapse; width: 100%; font-size: 15px; }
+.res-table th, .res-table td { padding: 9px 8px; border-bottom: 1px solid var(--line); text-align: left; }
+.res-table th { font-size: 13px; color: var(--muted); font-weight: 600; }
+.res-table td.n, .res-table th.n { text-align: right; font-variant-numeric: tabular-nums; }
+.table-wrap { overflow-x: auto; }
+
+/* 출제실 */
+.maker { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 16px; align-items: start; }
+@media (max-width: 900px) { .maker { grid-template-columns: 1fr; } }
+.form { display: grid; gap: 14px; }
+.rootrow { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) auto; gap: 8px; align-items: center; }
+.stepbox { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: grid; gap: 10px; }
+.stepbox h3 { font-size: 16px; }
+.check { display: grid; gap: 4px; font-size: 14.5px; }
+.check span.on { color: var(--ok); font-weight: 700; } .check span.off { color: var(--muted); }
+
+/* 선생님 */
+.tabs { display: flex; gap: 4px; flex-wrap: wrap; border-bottom: 1px solid var(--line); }
+.tab { border: 0; border-bottom: 2.5px solid transparent; background: none; padding: 8px 14px; cursor: pointer; font-size: 15px; font-weight: 700; color: var(--muted); margin-bottom: -1px; }
+.tab:hover { color: var(--ink); }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.qlist { display: grid; gap: 8px; }
+.qitem { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; align-items: center; border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; background: #fff; }
+.qitem .num { font-size: 18px; font-weight: 900; color: var(--accent); }
+.qitem small { color: var(--muted); }
+.board { display: grid; gap: 8px; }
+.brow { display: grid; grid-template-columns: 52px minmax(0, 1fr) minmax(0, 2fr) 110px; gap: 12px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; }
+.brow .rank { font-size: 26px; font-weight: 900; text-align: center; color: var(--muted); font-variant-numeric: tabular-nums; }
+.brow.first { background: var(--gold-soft); border-color: #EBD5A6; }
+.brow.first .rank { color: var(--accent); }
+.brow b.team { font-weight: 800; font-size: 18px; }
+.brow .barwrap { height: 10px; background: var(--soft); border-radius: 999px; overflow: hidden; }
+.brow .barwrap i { display: block; height: 100%; background: var(--accent); border-radius: 999px; }
+.brow b.pts { text-align: right; font-weight: 900; font-size: 24px; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.brow .gs { font-size: 13px; color: var(--muted); }
+@media (max-width: 600px) { .brow { grid-template-columns: 40px minmax(0, 1fr) 80px; } .brow .barwrap { grid-column: 1 / -1; } }
+.teacher-doc h3 { font-size: 18px; margin-top: 4px; }
+.teacher-doc ul, .teacher-doc ol { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+.teacher-doc table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+.teacher-doc th, .teacher-doc td { border-bottom: 1px solid var(--line); padding: 8px; text-align: left; vertical-align: top; }
+.teacher-doc th { font-size: 13px; color: var(--muted); }
+.teacher-doc code { background: var(--soft); padding: 1px 6px; border-radius: 4px; font-size: 13.5px; }
+.keys { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 14px; }
+.keys span { display: inline-flex; align-items: center; gap: 6px; }
+.keys i { width: 18px; height: 4px; border-radius: 2px; display: inline-block; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <button class="brand" type="button" id="home">아메리카, 문화가 만나는 자리 <small>AMERICAS</small></button>
+    <div class="top-info" id="topInfo"></div>
+  </div>
+</header>
+<main id="app"></main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+/* =========================================================
+   선생님이 바꾸기 쉬운 부분
+   - DEFAULT_SET: 1라운드(선생님 문제). 학생 ‘출제실’에서 만든 문제와 같은 모양이에요.
+   - POP: 나라별 인구 구성(인구조사). 게임의 ‘인구 지도’에 쓰여요.
+   ========================================================= */
+var DEFAULT_SET = [
+  { cat: "음악", title: "삼바", place: "브라질 리우데자네이루", lat: -22.91, lon: -43.17,
+    clue: "아프리카에서 끌려온 사람들의 북 장단에 유럽에서 온 작은 기타 소리가 섞인 음악이에요. 해마다 카니발이 열리면 수천 명이 이 음악에 맞춰 춤추며 거리를 행진해요.",
+    hints: ["남아메리카의 대서양 쪽에 있어요.", "포르투갈의 식민지였던 나라예요.", "이 나라 동쪽 해안의 큰 항구 도시로, 산 위의 거대한 예수상이 유명해요."],
+    roots: [{ cat: "afro", from: "wafrica" }, { cat: "afro", from: "cafrica" }, { cat: "euro", from: "portugal" }],
+    explain: "16~19세기 사탕수수 농장에서 일하도록 수백만 명의 아프리카 사람들이 브라질로 끌려왔어요. 아프리카계의 북 장단과 춤이 포르투갈에서 온 기타·선율과 만나 삼바가 되었어요. 인구 지도를 보면 브라질은 혼혈과 아프리카계를 합쳐 절반이 넘어요.", by: "선생님" },
+  { cat: "음식", title: "텍스멕스", place: "미국 텍사스 샌안토니오", lat: 29.42, lon: -98.49,
+    clue: "옥수수 토르티야에 소고기를 넣고, 노란 치즈를 듬뿍 녹여 올린 음식이에요. 원주민이 기르던 옥수수와 고추, 스페인 사람들이 들여온 소고기, 미국에 살던 유럽계 사람들의 치즈 요리법이 한 접시에 모였어요.",
+    hints: ["북아메리카에 있어요.", "1836년까지 멕시코 땅이었던 지역이에요. 지금은 다른 나라에 속해요.", "음식 이름은 이 주와 이웃 나라의 이름을 합친 거예요. 이 주 남쪽의 도시예요."],
+    roots: [{ cat: "native", from: "here" }, { cat: "euro", from: "spain" }, { cat: "euro", from: "usa" }],
+    explain: "텍사스는 스페인 식민지였다가 1836년까지 멕시코 땅이었어요. 그래서 지금도 텍사스 주민 10명 중 4명 정도가 히스패닉·라틴계예요. 원주민의 작물, 스페인의 소고기, 미국 유럽계의 치즈 요리가 섞여 멕시코에도 미국에도 없던 음식이 생겼어요.", by: "선생님" },
+  { cat: "축제", title: "망자의 날", place: "멕시코 멕시코시티", lat: 19.43, lon: -99.13,
+    clue: "주황색 꽃과 해골 장식, 조상이 좋아하던 음식으로 제단을 꾸미고 세상을 떠난 가족을 맞이하는 축제예요. 원주민의 조상 맞이 풍습이 스페인 사람들이 전한 가톨릭 기념일(11월 1~2일)과 합쳐졌어요.",
+    hints: ["북아메리카의 남쪽에 있어요.", "영화 〈코코〉의 배경이 된 나라예요.", "아스테카 문명의 수도 자리에 세워진, 이 나라의 수도예요."],
+    roots: [{ cat: "native", from: "here" }, { cat: "euro", from: "spain" }],
+    explain: "인구 지도를 보면 멕시코는 원주민이 약 19%이고, 국민의 절반이 넘는 약 62%가 원주민과 유럽계(스페인 사람)가 섞인 메스티소(혼혈)로 추정돼요. 그래서 원주민의 조상 맞이 의식과 스페인이 가져온 가톨릭이 함께 남아, 슬프지만 밝고 화려한 축제가 되었어요.", by: "선생님" },
+  { cat: "축제", title: "오루로 카니발", place: "볼리비아 오루로", lat: -17.97, lon: -67.11,
+    clue: "안데스 산지의 광산 도시에서 열리는 축제예요. 원주민이 땅과 산의 신에게 올리던 의식이 스페인 사람들이 전한 가톨릭 성모 축일과 합쳐졌어요. 무서운 악마 가면을 쓴 춤꾼 수천 명이 거리를 행진해요.",
+    hints: ["남아메리카의 안데스산맥에 있어요.", "바다와 맞닿지 않은 나라로, 원주민 비율이 아메리카에서 가장 높은 편이에요.", "해발 3,700m 고원의 광산 도시예요. 이 나라의 행정 수도 라파스에서 남쪽으로 약 200km예요."],
+    roots: [{ cat: "native", from: "here" }, { cat: "euro", from: "spain" }],
+    explain: "볼리비아는 10명 중 4명 정도가 스스로 원주민이라고 답할 만큼 원주민 문화가 강하게 남아 있어요. 유럽계는 약 5%로 적지만, 식민지 시대에 스페인 사람들이 가져온 가톨릭과 원주민의 의식이 섞여 ‘악마 춤(디아블라다)’ 같은 새로운 축제가 생겼어요.", by: "선생님" },
+  { cat: "스포츠", title: "카리브해식 야구", place: "도미니카공화국 산페드로데마코리스", lat: 18.46, lon: -69.30,
+    clue: "미국의 유럽계 사람들이 만든 운동이지만, 이 나라에서는 관중석의 밴드가 메렝게 음악을 연주하고 모두 춤추며 응원해요. 메렝게는 아프리카계의 북 리듬과 스페인의 기타·노래가 섞인 음악이에요. 1년 내내 따뜻해서 한겨울에도 프로 리그가 열려요.",
+    hints: ["카리브해에 있어요.", "아이티와 한 섬을 나눠 쓰는 나라로, 메이저리그에서 미국 다음으로 선수가 많아요.", "이 나라 수도에서 동쪽으로 약 70km, 사탕수수 공장마다 야구팀이 있던 도시예요."],
+    roots: [{ cat: "euro", from: "usa" }, { cat: "afro", from: "wafrica" }, { cat: "euro", from: "spain" }],
+    explain: "야구는 미국의 유럽계 사람들이 만든 운동으로, 19세기 후반 쿠바를 거쳐 이 섬에 전해졌어요. 이 나라 사람 대부분은 아프리카계와 유럽계가 섞인 혼혈이에요. 이들의 음악인 메렝게와 따뜻한 기후가 더해져 ‘카리브해식 야구’가 생겼어요.", by: "선생님" },
+  { cat: "춤", title: "탱고", place: "아르헨티나 부에노스아이레스", lat: -34.60, lon: -58.38,
+    clue: "독일에서 만든 손풍금(반도네온) 소리에, 유럽 이민자들의 노래와 아프리카계 사람들의 리듬이 항구 도시에서 만났어요. 두 사람이 꼭 붙어서 추는 춤으로도 유명해요.",
+    hints: ["남아메리카의 남쪽, 대서양 쪽에 있어요.", "19세기 말 이탈리아·스페인 이민자가 많이 건너온 나라로, 축구 선수 메시의 나라예요.", "큰 강 하구에 있는 이 나라의 수도예요."],
+    roots: [{ cat: "euro", from: "italy" }, { cat: "euro", from: "spain" }, { cat: "euro", from: "germany" }, { cat: "afro", from: "wafrica" }],
+    explain: "19세기 말~20세기 초 수백만 명의 유럽 이민자가 아르헨티나로 건너왔어요. 그래서 인구 지도에서 아르헨티나와 이웃 우루과이는 유럽계가 아주 많아요. 지금 아프리카계는 1%도 안 되지만, 19세기 초에는 부에노스아이레스 주민의 약 3분의 1이 아프리카계였어요. 이들의 리듬(칸돔베)과 이민자들의 음악이 항구에서 섞여 탱고가 생겼어요.", by: "선생님" },
+  { cat: "음악", title: "소카", place: "트리니다드토바고 포트오브스페인", lat: 10.65, lon: -61.51,
+    clue: "아프리카계 사람들의 칼립소 음악에 인도에서 온 북 장단과 가락이 섞인 신나는 음악이에요. 해마다 카니발이 열리면 온 거리가 이 음악으로 들썩여요.",
+    hints: ["카리브해에 있어요.", "인도계 주민이 가장 많은 섬나라로, 남아메리카 대륙과 아주 가까워요.", "이 나라의 수도로, 해마다 카리브해에서 손꼽히게 큰 카니발이 열려요."],
+    roots: [{ cat: "afro", from: "wafrica" }, { cat: "asia", from: "india" }],
+    explain: "노예 제도가 없어진 뒤, 사탕수수 농장에서 일할 사람을 구하려고 1845년부터 인도 사람들이 많이 건너왔어요. 그래서 이 나라는 아시아계(인도계)와 아프리카계가 비슷하게 많아요. 두 문화가 만나 소카가 생겼어요.", by: "선생님" },
+  { cat: "음식", title: "치파 (페루식 중국 요리)", place: "페루 리마", lat: -12.05, lon: -77.04,
+    clue: "볶음밥과 볶음국수인데, 안데스의 고추와 감자 같은 이 나라 재료로 만들어요. 19세기에 이 나라의 농장과 철도에서 일하러 중국에서 바다를 건너온 사람들이 시작했어요.",
+    hints: ["남아메리카의 태평양 쪽에 있어요.", "잉카 문명이 있던 나라예요.", "이 나라의 수도예요. 요리 이름이 중국어 ‘吃饭(밥 먹다)’에서 왔다는 이야기가 있어요."],
+    roots: [{ cat: "asia", from: "china" }, { cat: "native", from: "here" }],
+    explain: "1849년부터 많은 중국 사람들이 페루의 농장과 철도에서 일하러 건너왔어요. 이들이 원주민이 기르던 고추·감자 같은 재료로 고향 요리를 만들면서 ‘치파’가 생겼어요. 페루는 원주민도 4명 중 1명꼴로 많아요. 지금 스스로 아시아계라고 답한 사람은 0.2%로 적지만, 치파 식당은 페루 어디에서나 볼 수 있을 만큼 문화가 널리 퍼졌어요.", by: "선생님" }
+];
+
+// 나라별 인구 구성(%) — 각 나라 인구조사. 키는 국제 국가 번호(ISO 숫자)
+var POP = {
+  "840": { ko: "미국", y: "2020", native: 1.1, euro: 61.6, afro: 12.4, asia: 6.0, mixed: 10.2, note: "인종과 따로 18.7%가 히스패닉·라틴계" },
+  "484": { ko: "멕시코", y: "2020", native: 19.4, afro: 2.0, est: { mixed: 62, euro: 10 } },
+  "320": { ko: "과테말라", y: "2018", native: 43.4, mixed: 56.0, afro: 0.2 },
+  "192": { ko: "쿠바", y: "2012", euro: 64.1, mixed: 26.6, afro: 9.3 },
+  "214": { ko: "도미니카공화국", y: "2006", euro: 13.6, mixed: 67.6, afro: 18.3 },
+  "780": { ko: "트리니다드토바고", y: "2011", asia: 35.4, afro: 34.2, mixed: 22.8, note: "아시아계는 대부분 인도계" },
+  "328": { ko: "가이아나", y: "2012", asia: 39.8, afro: 29.3, mixed: 19.9, native: 10.5, note: "아시아계는 대부분 인도계" },
+  "170": { ko: "콜롬비아", y: "2018", native: 4.3, afro: 6.8, note: "혼혈·유럽계는 따로 묻지 않음" },
+  "862": { ko: "베네수엘라", y: "2011", native: 2.7, euro: 43.6, mixed: 51.6, afro: 3.6 },
+  "218": { ko: "에콰도르", y: "2022", native: 7.7, euro: 2.2, mixed: 78.9, afro: 3.4 },
+  "604": { ko: "페루", y: "2017", native: 25.8, euro: 5.9, mixed: 60.2, afro: 3.6, asia: 0.2 },
+  "068": { ko: "볼리비아", y: "2012", native: 41.5, est: { euro: 5, afro: 1 }, note: "혼혈은 따로 묻지 않음" },
+  "076": { ko: "브라질", y: "2022", native: 0.6, euro: 43.5, mixed: 45.3, afro: 10.2, asia: 0.4 },
+  "600": { ko: "파라과이", y: "2022", native: 2.3, note: "원주민인지만 따로 물음" },
+  "152": { ko: "칠레", y: "2017", native: 12.4, note: "원주민인지만 따로 물음" },
+  "032": { ko: "아르헨티나", y: "2022", native: 2.8, afro: 0.7, est: { euro: 97 }, estNote: "유럽계와 메스티소를 합친 값", note: "혼혈은 따로 묻지 않음" },
+  "858": { ko: "우루과이", y: "2011", native: 2.4, euro: 87.7, afro: 4.6, asia: 0.2 }
+};
+
+// 섞인 문화의 종류 — 인구 지도와 같은 이름·색을 써요
+var ROOT = {
+  native: { ko: "원주민", color: "#148A86" },
+  euro: { ko: "유럽계", color: "#3B5BDB" },
+  afro: { ko: "아프리카계", color: "#E09A00" },
+  asia: { ko: "아시아계", color: "#D6337F" }
+};
+var MIXED_COLOR = "#6B4FBB";
+// 섞인 문화가 출발한 곳 (위도, 경도)
+var ORIGIN = {
+  here: { ko: "그 땅에 원래 살던 원주민", cat: "native" },
+  spain: { ko: "스페인", cat: "euro", lat: 40.4, lon: -3.7 },
+  portugal: { ko: "포르투갈", cat: "euro", lat: 38.7, lon: -9.1 },
+  italy: { ko: "이탈리아", cat: "euro", lat: 41.9, lon: 12.5 },
+  germany: { ko: "독일", cat: "euro", lat: 52.5, lon: 13.4 },
+  england: { ko: "영국", cat: "euro", lat: 51.5, lon: -0.1 },
+  france: { ko: "프랑스", cat: "euro", lat: 48.9, lon: 2.35 },
+  wafrica: { ko: "서아프리카", cat: "afro", lat: 7.5, lon: -1.0 },
+  cafrica: { ko: "중앙아프리카", cat: "afro", lat: -6.0, lon: 15.0 },
+  china: { ko: "중국", cat: "asia", lat: 23.1, lon: 113.3 },
+  japan: { ko: "일본", cat: "asia", lat: 35.7, lon: 139.7 },
+  korea: { ko: "한국", cat: "asia", lat: 37.6, lon: 127.0 },
+  india: { ko: "인도", cat: "asia", lat: 22.6, lon: 88.4 },
+  usa: { ko: "미국 (유럽계)", cat: "euro", lat: 40.7, lon: -74.0 },
+  jamaica: { ko: "자메이카", cat: "afro", lat: 18.0, lon: -76.8 }
+};
+// 지도에 점으로 보이는 아메리카 주요 도시 (확대하면 이름이 보여요)
+var CITIES = [
+  ["로스앤젤레스", 34.05, -118.24, "미국", "약 1,300만 명", "미국 서부 태평양 연안의 가장 큰 도시예요. 영화 산업(할리우드)의 중심지예요."],
+  ["시카고", 41.88, -87.63, "미국", "약 940만 명", "오대호(미시간호) 연안의 교통·공업 도시예요."],
+  ["뉴욕", 40.71, -74.01, "미국", "약 1,900만 명", "미국에서 가장 큰 도시로, 세계 금융의 중심지예요. 국제 연합(UN) 본부가 있어요."],
+  ["샌안토니오", 29.42, -98.49, "미국 (텍사스주)", "약 260만 명", "텍사스주 남부의 도시예요. 주민의 절반 이상이 히스패닉(라틴 아메리카계)이에요."],
+  ["멕시코시티", 19.43, -99.13, "멕시코", "약 2,200만 명", "멕시코의 수도예요. 해발 약 2,240m의 고원에 있는, 아메리카에서 손꼽히는 대도시예요."],
+  ["아바나", 23.11, -82.37, "쿠바", "약 210만 명", "쿠바의 수도예요. 카리브해 쿠바섬 북쪽 해안의 항구 도시예요."],
+  ["산페드로데마코리스", 18.46, -69.30, "도미니카공화국", "약 20만 명", "카리브해 연안의 항구 도시예요."],
+  ["포트오브스페인", 10.65, -61.51, "트리니다드토바고", "약 4만 명 (주변 지역 포함 약 50만 명)", "트리니다드토바고의 수도예요. 남아메리카 베네수엘라와 마주 보는 항구 도시예요."],
+  ["보고타", 4.71, -74.07, "콜롬비아", "약 1,100만 명", "콜롬비아의 수도예요. 적도와 가깝지만 해발 약 2,600m 고원이라 1년 내내 선선해요."],
+  ["마나우스", -3.12, -60.02, "브라질", "약 220만 명", "아마존 열대 우림 한가운데, 아마존강과 네그루강이 만나는 곳의 도시예요."],
+  ["리마", -12.05, -77.04, "페루", "약 1,100만 명", "페루의 수도예요. 태평양 연안의 사막 기후 도시라 비가 거의 오지 않아요."],
+  ["오루로", -17.97, -67.11, "볼리비아", "약 26만 명", "안데스산맥 사이의 넓은 고원(알티플라노)에 있는 도시예요."],
+  ["살바도르", -12.97, -38.50, "브라질", "약 390만 명", "브라질 북동부 해안 도시로, 1763년까지 브라질의 수도였어요. 아프리카계 주민 비율이 브라질에서 가장 높은 편이에요."],
+  ["리우데자네이루", -22.91, -43.17, "브라질", "약 1,350만 명", "브라질 남동부 대서양 연안의 항구 도시로, 1960년까지 브라질의 수도였어요."],
+  ["산티아고", -33.45, -70.67, "칠레", "약 700만 명", "칠레의 수도예요. 안데스산맥 서쪽 기슭의 분지에 있어요."],
+  ["부에노스아이레스", -34.60, -58.38, "아르헨티나", "약 1,550만 명", "아르헨티나의 수도예요. 남아메리카에서 손꼽히는 대도시예요."]
+];
+// 지도에 작게 쓰는 나라 이름 (네 번째 값 1: 처음부터 보임, 나머지는 확대하면 보임)
+var COUNTRY_LABELS = [
+  ["미국", -98, 39, 1], ["캐나다", -105, 58, 1], ["멕시코", -102, 24, 1], ["브라질", -52, -10, 1], ["아르헨티나", -65, -36, 1],
+  ["페루", -75, -9.5, 1], ["콜롬비아", -73.5, 3.5, 1], ["볼리비아", -64, -15.5, 1], ["베네수엘라", -66, 7.5, 1], ["칠레", -71.3, -27, 1],
+  ["과테말라", -90.3, 15.8], ["온두라스", -86.6, 14.9], ["니카라과", -85, 12.9], ["코스타리카", -84, 9.9], ["파나마", -80.2, 8.4],
+  ["쿠바", -79.5, 21.9], ["자메이카", -77.3, 18.4], ["아이티", -72.8, 19.3], ["도미니카공화국", -70.4, 19.4], ["푸에르토리코", -66.4, 18.6],
+  ["트리니다드토바고", -61.2, 11.0], ["가이아나", -59, 5], ["수리남", -55.9, 4], ["에콰도르", -78.4, -1.6], ["파라과이", -58.4, -23.2], ["우루과이", -56, -32.8]
+];
+// 나라 개관 (대략적인 값)
+var COUNTRY_INFO = {
+  "미국": "면적 약 983만 km² · 인구 약 3억 3,000만 명", "멕시코": "면적 약 196만 km² · 인구 약 1억 3,000만 명",
+  "쿠바": "면적 약 11만 km² · 인구 약 1,100만 명", "도미니카공화국": "면적 약 4만 9,000km² · 인구 약 1,100만 명",
+  "트리니다드토바고": "면적 약 5,100km² · 인구 약 140만 명", "콜롬비아": "면적 약 114만 km² · 인구 약 5,200만 명",
+  "브라질": "면적 약 851만 km² · 인구 약 2억 1,000만 명", "페루": "면적 약 129만 km² · 인구 약 3,400만 명",
+  "볼리비아": "면적 약 110만 km² · 인구 약 1,200만 명", "칠레": "면적 약 76만 km² · 인구 약 2,000만 명",
+  "아르헨티나": "면적 약 278만 km² · 인구 약 4,600만 명"
+};
+// 도시 경관 사진: 위키백과(영어) 문서의 대표 사진을 불러와요. [문서 제목, 사진 설명]
+// 정답 문화가 드러나지 않도록 도시 자체보다 자연 경관·건축물 문서를 골랐어요.
+var CITY_PHOTO = {
+  "로스앤젤레스": ["Hollywood Sign", "할리우드 사인"], "시카고": ["Chicago River", "시카고강"], "뉴욕": ["Brooklyn Bridge", "브루클린 다리"],
+  "샌안토니오": ["San Antonio River Walk", "샌안토니오 리버워크"], "멕시코시티": ["Palacio de Bellas Artes", "예술 궁전"],
+  "아바나": ["Malecón, Havana", "말레콘 해안 도로"], "산페드로데마코리스": ["San Pedro de Macorís", "산페드로데마코리스"],
+  "포트오브스페인": ["Northern Range", "트리니다드섬 북부 산맥"], "보고타": ["Bogotá", "보고타"], "마나우스": ["Teatro Amazonas", "아마조나스 극장"],
+  "리마": ["Plaza Mayor, Lima", "리마 중앙 광장"], "오루로": ["Altiplano", "알티플라노 고원"], "살바도르": ["Pelourinho", "펠로리뉴 역사 지구"],
+  "리우데자네이루": ["Sugarloaf Mountain", "빵지아수카르산"], "산티아고": ["Santiago", "산티아고"], "부에노스아이레스": ["Obelisco de Buenos Aires", "오벨리스크"]
+};
+var PHOTO_CACHE = {};
+function cityPhoto(name) {
+  var t = CITY_PHOTO[name]; if (!t) return Promise.resolve(null);
+  if (!PHOTO_CACHE[name]) PHOTO_CACHE[name] = fetch("https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&pithumbsize=560&redirects=1&origin=*&titles=" + encodeURIComponent(t[0]))
+    .then(function (r) { return r.json(); })
+    .then(function (j) { var pg = j && j.query && j.query.pages, k = pg && Object.keys(pg)[0], th = k && pg[k].thumbnail; return th ? th.source : null; })
+    .catch(function () { PHOTO_CACHE[name] = null; return null; });
+  return PHOTO_CACHE[name];
+}
+function cityBrief(name) {
+  var c = CITIES.filter(function (x) { return x[0] === name; })[0];
+  return c ? " (" + c[3] + " · 도시 인구 " + c[4].replace(/\s*\(.*\)$/, "") + ")" : "";
+}
+function cityInfoHTML(c) {
+  var ctry = c[3].replace(/\s*\(.*\)$/, "");
+  return (CITY_PHOTO[c[0]] ? '<figure class="ct-img"><img alt=""><figcaption>' + CITY_PHOTO[c[0]][1] + ' · 사진: 위키미디어 공용</figcaption></figure>' : "") + '<b>' + c[0] + '</b><span class="ct-c">' + c[3] + '</span><div class="ct-r">도시 인구 ' + c[4] + '</div><p>' + c[5] + '</p>' +
+    (COUNTRY_INFO[ctry] ? '<div class="ct-n"><b>' + ctry + '</b> ' + COUNTRY_INFO[ctry] + '</div>' : "");
+}
+var CATS = ["음악", "춤", "스포츠", "음식", "축제", "언어", "패션", "게임·영화"];
+var WORLD_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json";
+// 구글 시트 연결 주소(웹 앱 URL). 비워 두면 선생님 화면 ‘⓪ 연결 설정’에서 넣은 주소나 학생 링크에 담긴 주소를 써요.
+var SHEET_URL = "";
+var APPS_SCRIPT = "// 「아메리카, 문화가 만나는 자리」 점수·문제 모으기 — 구글 시트의 Apps Script에 붙여 넣으세요\nfunction doPost(e) {\n  var lock = LockService.getScriptLock();\n  lock.waitLock(10000);\n  try {\n    var d = JSON.parse(e.postData.contents);\n    sheet_().appendRow([new Date(), String(d.room || ''), String(d.type || ''), String(d.team || ''), JSON.stringify(d.data || {})]);\n  } finally {\n    lock.releaseLock();\n  }\n  return ContentService.createTextOutput('{\"ok\":true}').setMimeType(ContentService.MimeType.JSON);\n}\n\nfunction doGet(e) {\n  var room = String((e && e.parameter && e.parameter.room) || '');\n  var rows = sheet_().getDataRange().getValues();\n  var out = { scores: [], questions: [], hidden: {} };\n  for (var i = 1; i < rows.length; i++) {\n    var r = rows[i];\n    if (String(r[1]) !== room) continue;\n    var data;\n    try { data = JSON.parse(r[4]); } catch (err) { continue; }\n    var item = { at: new Date(r[0]).getTime(), team: String(r[3]), data: data };\n    if (r[2] === 'score') out.scores.push(item);\n    else if (r[2] === 'q') out.questions.push(item);\n    else if (r[2] === 'hide') out.hidden[data.id] = true;\n    else if (r[2] === 'unhide') delete out.hidden[data.id];\n  }\n  return ContentService.createTextOutput(JSON.stringify(out)).setMimeType(ContentService.MimeType.JSON);\n}\n\nfunction sheet_() {\n  var ss = SpreadsheetApp.getActiveSpreadsheet();\n  var sh = ss.getSheetByName('기록') || ss.insertSheet('기록');\n  if (sh.getLastRow() === 0) sh.appendRow(['시간', '반', '종류', '모둠', '내용']);\n  return sh;\n}\n";
+</script>
+<script>
+(function () {
+  "use strict";
+  var app = document.getElementById("app");
+  var KEY = "culture-guess-v1";
+  var S = {};
+  try { S = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { S = {}; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+  function esc(t) { return String(t == null ? "" : t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function $(sel, root) { return (root || document).querySelector(sel); }
+
+  /* ---------- 구글 시트로 자동 모으기 ---------- */
+  var HP = new URLSearchParams((location.hash || "").replace(/^#/, ""));
+  if (HP.get("room")) S.room = HP.get("room");
+  if (HP.get("sheet")) S.sheet = HP.get("sheet");
+  var POLL = null;
+  function sheetURL() { var u = S.sheet || SHEET_URL || ""; return /^https:\/\/script\.google(usercontent)?\.com\//.test(u) ? u : ""; }
+  function connected() { return !!(sheetURL() && S.room); }
+  function send(type, team, data) {
+    if (!connected()) return Promise.resolve(false);
+    return fetch(sheetURL(), { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ type: type, room: S.room, team: team, data: data }) })
+      .then(function () { return true; }, function () { return false; });
+  }
+  function fetchRoom(room) {
+    var u = sheetURL(); if (!u) return Promise.reject(new Error("연결 주소 없음"));
+    return fetch(u + (u.indexOf("?") >= 0 ? "&" : "?") + "room=" + encodeURIComponent(room || S.room || "") + "&t=" + Date.now()).then(function (r) { if (!r.ok) throw new Error("응답 " + r.status); return r.json(); });
+  }
+  function qid(q) { return (q.by || "") + "|" + q.title; }
+  function roomQuestions(data) {
+    var by = {};
+    (data.questions || []).forEach(function (it) { var q = it.data; if (!validQ(q)) return; q = cleanQ(q); if (!q.by) q.by = it.team; by[qid(q)] = { q: q, at: it.at }; });
+    return Object.keys(by).map(function (k) { return by[k]; }).sort(function (a, b) { return a.at - b.at; }).map(function (x) { return x.q; });
+  }
+
+  /* ---------- 코드 (문제·점수·문제집을 글자로 주고받기) ---------- */
+  function enc(prefix, obj) { var b = btoa(unescape(encodeURIComponent(JSON.stringify(obj)))); return prefix + "." + b.replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+  function dec(code) {
+    var m = String(code).trim().match(/^(Q1|S1|SET1)\.([A-Za-z0-9_-]+)$/); if (!m) return null;
+    try { var b = m[2].replace(/-/g, "+").replace(/_/g, "/"); while (b.length % 4) b += "="; return { kind: m[1], data: JSON.parse(decodeURIComponent(escape(atob(b)))) }; } catch (e) { return null; }
+  }
+  function decAll(text) { return String(text || "").split(/\s+/).map(dec).filter(Boolean); }
+  function validQ(q) {
+    if (q && Array.isArray(q.roots)) q.roots.forEach(function (r) { if (r && r.cat === "us") r.cat = "euro"; });
+    return q && typeof q.title === "string" && q.title.trim() && typeof q.clue === "string" && isFinite(q.lat) && isFinite(q.lon) && Math.abs(q.lat) <= 90 && Math.abs(q.lon) <= 180 &&
+      Array.isArray(q.hints) && Array.isArray(q.roots) && q.roots.length > 0 && q.roots.every(function (r) { return ROOT[r.cat] && ORIGIN[r.from]; });
+  }
+  function cleanQ(q) {
+    return { cat: String(q.cat || "기타").slice(0, 12), title: String(q.title).slice(0, 40), place: String(q.place || "").slice(0, 40), lat: +(+q.lat).toFixed(2), lon: +(+q.lon).toFixed(2),
+      clue: String(q.clue).slice(0, 300), hints: q.hints.slice(0, 3).map(function (h) { return String(h || "").slice(0, 150); }),
+      roots: q.roots.slice(0, 6).map(function (r) { return { cat: r.cat, from: r.from }; }), explain: String(q.explain || "").slice(0, 400), by: String(q.by || "").slice(0, 20) };
+  }
+  function copy(text, out) {
+    function fb() { out.textContent = "복사가 막혀 있어요. 위 칸의 글자를 길게 눌러 직접 복사해 주세요."; }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { out.textContent = "복사했어요!"; }, fb); else fb();
+  }
+
+  /* ---------- 지도 ---------- */
+  var worldP = null;
+  function topoFeatures(topo) {
+    var tf = topo.transform, arcs = topo.arcs.map(function (a) {
+      var x = 0, y = 0;
+      return a.map(function (p) { if (!tf) return p.slice(0, 2); x += p[0]; y += p[1]; return [x * tf.scale[0] + tf.translate[0], y * tf.scale[1] + tf.translate[1]]; });
+    });
+    function ring(ids) { var pts = []; ids.forEach(function (i, k) { var a = i < 0 ? arcs[~i].slice().reverse() : arcs[i]; pts = pts.concat(k ? a.slice(1) : a); }); return pts; }
+    var obj = topo.objects.countries || topo.objects[Object.keys(topo.objects)[0]];
+    return obj.geometries.map(function (g) {
+      var coords = g.type === "Polygon" ? g.arcs.map(ring) : g.type === "MultiPolygon" ? g.arcs.map(function (p) { return p.map(ring); }) : null;
+      return { type: "Feature", id: g.id, properties: g.properties || {}, geometry: coords ? { type: g.type, coordinates: coords } : null };
+    }).filter(function (f) { return f.geometry; });
+  }
+  function loadWorld() {
+    if (!worldP) worldP = fetch(WORLD_URL).then(function (r) { if (!r.ok) throw new Error("지도 파일 " + r.status); return r.json(); }).then(topoFeatures).catch(function (e) { worldP = null; throw e; });
+    return worldP;
+  }
+  function haversine(a, b) {
+    var R = 6371, t = Math.PI / 180, dLat = (b[1] - a[1]) * t, dLon = (b[0] - a[0]) * t;
+    var h = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(a[1] * t) * Math.cos(b[1] * t) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    return 2 * R * Math.asin(Math.min(1, Math.sqrt(h)));
+  }
+
+  // 지도 하나 만들기: opts.onPick(경도,위도)
+  function MapView(host, opts) {
+    opts = opts || {};
+    var W = 960, H = 640, self = {}, k = 1, layer = null;
+    host.innerHTML = '<div class="map-fail">지도를 불러오는 중이에요…</div>';
+    if (!window.d3) { host.innerHTML = '<div class="map-fail">지도 도구를 불러오지 못했어요. 인터넷 연결을 확인한 뒤 새로고침해 주세요.</div>'; return self; }
+    var proj = d3.geoNaturalEarth1().rotate([55, 0]);
+    proj.fitExtent([[10, 10], [W - 10, H - 10]], { type: "MultiPoint", coordinates: [[-128, 60], [22, 60], [-128, -56], [22, -56], [-128, 0], [22, 0]] });
+    proj.clipExtent([[0, 0], [W, H]]);
+    var path = d3.geoPath(proj);
+    var svg = d3.create("svg").attr("viewBox", "0 0 " + W + " " + H).attr("role", "img").attr("aria-label", opts.label || "아메리카와 대서양 지도");
+    var defs = svg.append("defs");
+    Object.keys(ROOT).forEach(function (c) { defs.append("marker").attr("id", "ar-" + c + "-" + (opts.id || "m")).attr("viewBox", "0 0 10 10").attr("refX", 8).attr("refY", 5).attr("markerWidth", 5).attr("markerHeight", 5).attr("orient", "auto").append("path").attr("d", "M0 0 L10 5 L0 10 Z").attr("fill", ROOT[c].color); });
+    svg.append("rect").attr("width", W).attr("height", H).attr("fill", "var(--sea)");
+    var g = svg.append("g");
+    var gLand = g.append("g"), gLabel = g.append("g").attr("class", "clabels"), gArea = g.append("g"), gOver = g.append("g"), gCity = g.append("g"), gPins = g.append("g");
+    gLand.append("path").attr("class", "graticule").attr("d", path(d3.geoGraticule10()));
+    var tip = document.createElement("div"); tip.className = "tip"; tip.hidden = true;
+    var ctip = document.createElement("div"); ctip.className = "ctip"; ctip.hidden = true;
+    function showCity(ev, c) {
+      var box = host.getBoundingClientRect(), x = ev.clientX - box.left, y = ev.clientY - box.top;
+      if (ctip.dataset.city !== c[0] || ctip.hidden) {
+        ctip.innerHTML = cityInfoHTML(c); ctip.dataset.city = c[0];
+        var fig = ctip.querySelector(".ct-img");
+        if (fig) cityPhoto(c[0]).then(function (src) {
+          if (ctip.dataset.city !== c[0]) return;
+          if (!src) { fig.remove(); place(); return; }
+          var im = fig.querySelector("img"); im.onload = function () { fig.classList.add("on"); }; im.onerror = function () { fig.remove(); place(); }; im.src = src;
+        });
+      }
+      ctip.hidden = false; tip.hidden = true;
+      function place() {
+        var w = ctip.offsetWidth, h = ctip.offsetHeight;
+        ctip.style.left = Math.max(8, Math.min(box.width - w - 8, x - w / 2)) + "px";
+        ctip.style.top = Math.max(8, y - h - 16 < 8 ? Math.min(y + 18, box.height - h - 8) : y - h - 16) + "px";
+      }
+      place();
+    }
+    var tools = document.createElement("div"); tools.className = "map-tools";
+    tools.innerHTML = '<button type="button" aria-label="확대" data-z="in">+</button><button type="button" aria-label="축소" data-z="out">−</button><button type="button" aria-label="처음 크기로" data-z="reset">⟲</button>';
+    var msg = document.createElement("div"); msg.className = "map-msg"; msg.textContent = opts.msg || "";
+    msg.hidden = !opts.msg;
+    var zoom = d3.zoom().scaleExtent([1, 10]).translateExtent([[0, 0], [W, H]]).on("zoom", function (ev) { k = ev.transform.k; g.attr("transform", ev.transform); scalePins(); host.classList.toggle("named", k >= 2.2); });
+    svg.call(zoom).on("dblclick.zoom", null);
+    tools.addEventListener("click", function (e) { var b = e.target.closest("button"); if (!b) return; var z = b.dataset.z; if (z === "in") svg.transition().duration(250).call(zoom.scaleBy, 1.8); else if (z === "out") svg.transition().duration(250).call(zoom.scaleBy, 1 / 1.8); else svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity); });
+    svg.on("click", function (ev) {
+      if (ev.defaultPrevented || !opts.onPick) return;
+      var p = d3.pointer(ev, g.node()), best = null, bd = 16 / k;
+      if (opts.cities !== false) CITIES.forEach(function (c) { var q = proj([c[2], c[1]]); if (!q) return; var d = Math.hypot(q[0] - p[0], q[1] - p[1]); if (d < bd) { bd = d; best = c; } });
+      if (best) { showCity(ev, best); opts.onPick(best[2], best[1], best[0]); return; }
+      ctip.hidden = true;
+      var ll = proj.invert(p);
+      if (ll && isFinite(ll[0])) opts.onPick(ll[0], ll[1], "");
+    });
+    function scalePins() { gPins.selectAll("[data-r]").attr("r", function () { return +this.getAttribute("data-r") / Math.sqrt(k); }); gPins.selectAll("text").attr("font-size", 16 / Math.sqrt(k)); gLabel.selectAll("text").attr("font-size", function () { return (this.getAttribute("data-big") ? 13 : 11) / k; }); gCity.selectAll("circle.dot").attr("r", 4 / Math.sqrt(k)); gCity.selectAll("circle.hit").attr("r", 12 / k); gCity.selectAll("text").attr("font-size", 15 / k).attr("y", function () { return +this.getAttribute("data-y") - 8 / k; }); }
+    COUNTRY_LABELS.forEach(function (c) {
+      var q = proj([c[1], c[2]]); if (!q) return;
+      gLabel.append("text").attr("x", q[0]).attr("y", q[1]).attr("text-anchor", "middle").attr("dominant-baseline", "middle").attr("class", c[3] ? "big" : "small").attr("data-big", c[3] ? "1" : null).attr("font-size", c[3] ? 13 : 11).text(c[0]);
+    });
+    if (opts.cities !== false) CITIES.forEach(function (c) {
+      var q = proj([c[2], c[1]]); if (!q) return;
+      var cg = gCity.append("g").attr("class", "city").on("mouseenter mousemove", function (ev) { showCity(ev, c); }).on("mouseleave", function () { ctip.hidden = true; });
+      cg.append("circle").attr("class", "hit").attr("cx", q[0]).attr("cy", q[1]).attr("r", 12);
+      cg.append("circle").attr("class", "dot").attr("cx", q[0]).attr("cy", q[1]).attr("r", 4);
+      cg.append("text").attr("x", q[0]).attr("data-y", q[1]).attr("y", q[1] - 7).attr("text-anchor", "middle").attr("font-size", 12).text(c[0]);
+    });
+    var features = [];
+    loadWorld().then(function (fs) {
+      features = fs;
+      host.innerHTML = ""; host.appendChild(svg.node()); host.appendChild(tools); host.appendChild(msg); host.appendChild(tip); host.appendChild(ctip);
+      gLand.selectAll("path.country").data(fs).join("path").attr("class", function (d) { var c = d3.geoCentroid(d)[0]; return "country" + (c < -30 && c > -170 ? " am" : ""); }).attr("d", path)
+        .on("mousemove", function (ev, d) { if (ctip.hidden) showTip(ev, d); }).on("mouseleave", function () { tip.hidden = true; });
+      self.setLayer(layer);
+      if (opts.ready) opts.ready(self);
+    }).catch(function (e) { host.innerHTML = '<div class="map-fail">지도를 불러오지 못했어요. 인터넷에 연결된 상태에서 새로고침해 주세요.<br><small>(' + esc(e.message) + ')</small></div>'; });
+
+    function showTip(ev, d) {
+      if (!layer) { tip.hidden = true; return; }
+      var P = POP[d.id], box = host.getBoundingClientRect();
+      var V = popVal(P, layer);
+      tip.textContent = P ? P.ko + " · " + ROOTNAME(layer) + " " + (V ? (V.est ? "약 " + V.v + "% (추정" + (P.estNote ? ", " + P.estNote : "") + ")" : V.v + "%") : "인구 조사에서 따로 묻지 않음") : "자료 없음";
+      tip.style.left = (ev.clientX - box.left) + "px"; tip.style.top = (ev.clientY - box.top) + "px"; tip.hidden = false;
+    }
+    self.setLayer = function (key) {
+      layer = key || null;
+      var col = layer ? (layer === "mixed" ? MIXED_COLOR : ROOT[layer].color) : null;
+      gLand.selectAll("path.country").style("fill", function (d) {
+        if (!layer) return null;
+        var V = popVal(POP[d.id], layer); if (!V) return null;
+        return d3.interpolateRgb("#FFF8E1", col)(0.12 + 0.88 * Math.min(1, V.v / 70));
+      });
+    };
+    self.clear = function () { gPins.selectAll("*").remove(); gOver.selectAll("*").remove(); };
+    self.area = function (lon, lat, km) {
+      gArea.selectAll("*").remove(); if (!km) return;
+      gArea.append("path").attr("class", "area").attr("d", path(d3.geoCircle().center([lon, lat]).radius(km / 111.2)()));
+    };
+    self.pin = function (lon, lat, color, label, cls) {
+      var p = proj([lon, lat]); if (!p) return;
+      var gg = gPins.append("g").attr("class", cls || "");
+      gg.append("circle").attr("cx", p[0]).attr("cy", p[1]).attr("data-r", 10).attr("r", 10 / Math.sqrt(k)).attr("fill", color).attr("stroke", "#fff").attr("stroke-width", 3.5).style("vector-effect", "non-scaling-stroke");
+      if (label) gg.append("text").attr("x", p[0]).attr("y", p[1] - 14 / Math.sqrt(k)).attr("text-anchor", "middle").attr("font-size", 16 / Math.sqrt(k)).attr("fill", "#172A3A").attr("paint-order", "stroke").attr("stroke", "#fff").attr("stroke-width", 5).style("vector-effect", "non-scaling-stroke").attr("font-family", "Pretendard, Noto Sans KR, sans-serif").attr("font-weight", 700).text(label);
+    };
+    self.ring = function (lon, lat, color) {
+      var p = proj([lon, lat]); if (!p) return;
+      gPins.append("circle").attr("cx", p[0]).attr("cy", p[1]).attr("data-r", 20).attr("r", 20 / Math.sqrt(k)).attr("fill", "none").attr("stroke", color).attr("stroke-width", 3).attr("stroke-dasharray", "4 3").style("vector-effect", "non-scaling-stroke");
+    };
+    self.line = function (a, b, color, dashed) {
+      gOver.append("path").attr("d", path({ type: "LineString", coordinates: [a, b] })).attr("fill", "none").attr("stroke", color).attr("stroke-width", 2.5).attr("stroke-dasharray", dashed ? "6 5" : null).style("vector-effect", "non-scaling-stroke");
+    };
+    self.flow = function (from, to, cat, animate) {
+      gOver.append("path").attr("class", "flowline" + (animate ? " draw" : "")).attr("d", path({ type: "LineString", coordinates: [from, to] })).attr("fill", "none").attr("stroke", ROOT[cat].color).attr("stroke-width", 3.5).attr("stroke-linecap", "round").attr("opacity", .9).style("vector-effect", "non-scaling-stroke").attr("marker-end", "url(#ar-" + cat + "-" + (opts.id || "m") + ")");
+    };
+    self.focus = function (lon, lat, scale) {
+      var p = proj([lon, lat]); if (!p) return; var s = scale || 2.2;
+      svg.transition().duration(700).call(zoom.transform, d3.zoomIdentity.translate(W / 2 - p[0] * s, H / 2 - p[1] * s).scale(s));
+    };
+    self.reset = function () { svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity); };
+    self.setMsg = function (t) { msg.textContent = t || ""; msg.hidden = !t; };
+    return self;
+  }
+  // 인구 조사 값이 없으면 추정값(est)을 써요
+  function popVal(P, key) { if (!P) return null; if (P[key] != null) return { v: P[key], est: false }; if (P.est && P.est[key] != null) return { v: P.est[key], est: true }; return null; }
+  function ROOTNAME(key) { return key === "mixed" ? "혼혈" : ROOT[key].ko; }
+  function drawRoots(mv, q, animate) {
+    q.roots.forEach(function (r) {
+      var o = ORIGIN[r.from];
+      if (r.from === "here" || o.lat == null) mv.ring(q.lon, q.lat, ROOT[r.cat].color);
+      else mv.flow([o.lon, o.lat], [q.lon, q.lat], r.cat, animate);
+    });
+  }
+  function layerChips(mv, current, onSet) {
+    var wrap = document.createElement("div"); wrap.className = "layers";
+    wrap.innerHTML = '<span class="lab">인구 지도</span>';
+    [["", "끄기", "#172A3A"], ["native", ROOT.native.ko, ROOT.native.color], ["euro", ROOT.euro.ko, ROOT.euro.color], ["afro", ROOT.afro.ko, ROOT.afro.color], ["asia", ROOT.asia.ko, ROOT.asia.color], ["mixed", "혼혈", MIXED_COLOR]].forEach(function (L) {
+      var b = document.createElement("button"); b.type = "button"; b.className = "lchip"; b.style.setProperty("--c", L[2]); b.textContent = L[1];
+      b.setAttribute("aria-pressed", String((current || "") === L[0]));
+      b.addEventListener("click", function () { Array.prototype.forEach.call(wrap.querySelectorAll(".lchip"), function (x) { x.setAttribute("aria-pressed", "false"); }); b.setAttribute("aria-pressed", "true"); mv.setLayer(L[0] || null); if (onSet) onSet(L[0]); });
+      wrap.appendChild(b);
+    });
+    var lg = document.createElement("span"); lg.className = "hint"; lg.textContent = "진할수록 많이 살아요. 나라에 마우스를 올리면 숫자가 나와요. ‘추정’은 인구 조사에서 묻지 않아 다른 자료로 어림한 값이에요.";
+    var box = document.createElement("div"); box.style.display = "grid"; box.style.gap = "4px"; box.appendChild(wrap); box.appendChild(lg);
+    return box;
+  }
+
+  /* ---------- 도장 ---------- */
+  var STAMP_COLORS = ["#D9622B", "#C2347A", "#1F8A70", "#2F5DD0", "#8A5A2B", "#6B4FBB", "#148A86", "#B3261E"];
+  function stampSVG(q, i, gold, cls) {
+    var c = gold ? "#B8862B" : STAMP_COLORS[i % STAMP_COLORS.length], r = ((i * 37) % 17) - 8;
+    var t = q.title.replace(/\s*\(.*\)$/, ""); t = t.length > 5 ? t.slice(0, 5) + "…" : t;
+    return '<svg class="' + (cls || "") + '" viewBox="-60 -60 120 120" role="img" aria-label="' + esc(q.title) + ' 도장"><g transform="rotate(' + r + ')" opacity=".93">' +
+      '<circle r="52" fill="' + (gold ? "#FBF1D6" : "none") + '" stroke="' + c + '" stroke-width="4"/><circle r="45" fill="none" stroke="' + c + '" stroke-width="1.4" stroke-dasharray="3 3"/>' +
+      '<text y="-22" text-anchor="middle" font-size="9" font-weight="700" letter-spacing="2" fill="' + c + '" font-family="Noto Sans KR, sans-serif">' + (gold ? "★ GOLD ★" : "AMERICAS") + '</text>' +
+      '<text y="7" text-anchor="middle" font-size="17" fill="' + c + '" font-family="Pretendard, Noto Sans KR, sans-serif" font-weight="800">' + esc(t) + '</text>' +
+      '<text y="27" text-anchor="middle" font-size="10" fill="' + c + '" font-family="Noto Sans KR, sans-serif">' + esc(q.cat) + '</text></g></svg>';
+  }
+
+  /* ---------- 점수 ---------- */
+  var HINT_FACTOR = [1, 0.8, 0.6, 0.4];
+  // 힌트를 열수록 정답이 들어 있는 노란 범위가 좁아져요. 범위의 가운데는 정답에서 살짝 비껴 있어요.
+  var AREA_KM = [0, 2500, 1200, 500];
+  function hintArea(q, n) {
+    var r = AREA_KM[Math.min(n, 3)]; if (!r) return null;
+    var h = 0; String(q.title).split("").forEach(function (ch) { h = (h * 31 + ch.charCodeAt(0)) % 3600; });
+    var brg = h / 10 * Math.PI / 180, d = r * 0.55 / 6371, la = q.lat * Math.PI / 180, lo = q.lon * Math.PI / 180;
+    var la2 = Math.asin(Math.sin(la) * Math.cos(d) + Math.cos(la) * Math.sin(d) * Math.cos(brg));
+    var lo2 = lo + Math.atan2(Math.sin(brg) * Math.sin(d) * Math.cos(la), Math.cos(d) - Math.sin(la) * Math.sin(la2));
+    return [lo2 * 180 / Math.PI, la2 * 180 / Math.PI, r];
+  }
+  function distPoints(km) { return Math.round(1000 * Math.exp(-km / 1500)); }
+  function rootScore(q, picks) {
+    var need = {}; q.roots.forEach(function (r) { need[r.cat] = 1; });
+    var s = 0; picks.forEach(function (c) { s += need[c] ? 100 : -50; });
+    return Math.max(0, s);
+  }
+
+  /* ---------- 상단 ---------- */
+  function setTop(html) { document.getElementById("topInfo").innerHTML = html || ""; }
+  document.getElementById("home").addEventListener("click", function () { go("home"); });
+
+  var screens = {};
+  function go(name, arg) { clearInterval(POLL); S.screen = name; save(); setTop(""); window.scrollTo({ top: 0 }); screens[name](arg); }
+
+  // 주소로 받은 문제집 (#set=SET1....)
+  function hashSet() {
+    var code = HP.get("set"); if (!code) return null;
+    var d = dec(code); if (!d || d.kind !== "SET1" || !Array.isArray(d.data.qs)) return null;
+    var qs = d.data.qs.filter(validQ).map(cleanQ); return qs.length ? { name: d.data.name || "반 문제집", qs: qs } : null;
+  }
+
+  /* ========== 플레이 준비 ========== */
+  screens.setup = function () {
+    var hs = hashSet(), live = !!sheetURL();
+    var sets = [{ id: "default", name: "1라운드 · 선생님 문제", qs: DEFAULT_SET }];
+    if (live) sets.push({ id: "room", name: "2라운드 · 우리 반 친구들이 낸 문제" });
+    if (hs) sets.unshift({ id: "hash", name: hs.name + " (선생님이 보낸 문제집)", qs: hs.qs });
+    app.innerHTML = '<section class="card"><div class="kicker">게임 시작</div><h2>모둠 등록</h2>' +
+      '<label class="f">모둠 이름<input id="team" type="text" maxlength="20" placeholder="예) 3모둠" value="' + esc(S.team || "") + '"></label>' +
+      '<label class="f">반 이름<span class="sub">선생님이 알려 준 반 이름 (예: 2-3)</span><input id="room" type="text" maxlength="20" value="' + esc(S.room || "") + '"></label>' +
+      (live ? '<p class="hint" style="color:var(--ok)">✓ 선생님 점수판과 연결됐어요.</p>' : '<p class="hint">선생님 점수판과 연결되지 않았어요. 끝나면 점수 코드를 보내요.</p>') +
+      '<div class="f" style="display:grid;gap:8px"><b style="font-size:15px">문제집 고르기</b>' +
+      sets.map(function (s, i) { return '<label class="row" style="font-weight:500"><input type="radio" name="set" value="' + s.id + '"' + (i === 0 ? " checked" : "") + '> ' + esc(s.name) + (s.qs ? ' · ' + s.qs.length + '스테이지' : "") + '</label>'; }).join("") +
+      '<label class="row" style="font-weight:500"><input type="radio" name="set" value="paste"> 문제집 코드 붙여 넣기</label>' +
+      '<textarea id="setcode" class="code" placeholder="선생님이 준 SET1.… 코드를 붙여 넣으세요" hidden></textarea></div>' +
+      '<p class="err" id="err"></p><div class="row spread"><button class="btn ghost" type="button" id="back">← 처음으로</button><button class="btn" type="button" id="start">출발!</button></div></section>';
+    var ta = $("#setcode");
+    app.querySelector(".card").addEventListener("change", function (e) { if (e.target.name === "set") ta.hidden = e.target.value !== "paste"; });
+    $("#back").onclick = function () { go("home"); };
+    function begin(team, name, qs) { S.team = team; S.play = { name: name, qs: qs, idx: 0, results: [], cur: null }; save(); go("rules"); }
+    $("#start").onclick = function () {
+      var team = $("#team").value.trim(), room = $("#room").value.trim(), pick = (app.querySelector('input[name=set]:checked') || {}).value, qs = null, name = "";
+      if (!team) { $("#err").textContent = "모둠 이름을 적어 주세요."; return; }
+      if (live && !room) { $("#err").textContent = "반 이름을 적어 주세요. 그래야 점수가 우리 반 점수판에 올라가요."; return; }
+      S.room = room; save();
+      if (pick === "room") {
+        $("#err").textContent = ""; $("#start").disabled = true; $("#start").textContent = "문제를 받아 오는 중…";
+        fetchRoom(room).then(function (data) {
+          var hidden = data.hidden || {};
+          var list = roomQuestions(data).filter(function (q) { return !hidden[qid(q)] && q.by !== team; });
+          if (!list.length) throw new Error("아직 다른 모둠이 보낸 문제가 없어요. (우리 모둠이 낸 문제는 빠져요)");
+          begin(team, "2라운드 · " + room + " 친구들 문제", list);
+        }).catch(function (e) { $("#err").textContent = e.message; $("#start").disabled = false; $("#start").textContent = "출발!"; });
+        return;
+      }
+      if (pick === "paste") {
+        var found = decAll(ta.value), set = found.filter(function (x) { return x.kind === "SET1"; })[0];
+        if (set) { qs = (set.data.qs || []).filter(validQ).map(cleanQ); name = set.data.name || "반 문제집"; }
+        else { qs = found.filter(function (x) { return x.kind === "Q1"; }).map(function (x) { return x.data; }).filter(validQ).map(cleanQ); name = "붙여 넣은 문제"; }
+        if (!qs.length) { $("#err").textContent = "코드를 읽지 못했어요. SET1. 또는 Q1. 로 시작하는 코드를 그대로 붙여 넣어 주세요."; return; }
+      } else { var st = sets.filter(function (x) { return x.id === pick; })[0]; qs = st.qs; name = st.name; }
+      begin(team, name, qs);
+    };
+  };
+
+  /* ---------- 별·HUD ---------- */
+  var STAR_PATH = "M12 2 L14.9 8.6 L22 9.3 L16.6 14 L18.2 21 L12 17.3 L5.8 21 L7.4 14 L2 9.3 L9.1 8.6 Z";
+  function starSVG(on) { return '<svg class="' + (on ? "on" : "") + '" viewBox="0 0 24 24" aria-hidden="true"><path d="' + STAR_PATH + '" fill="' + (on ? "#E3A73A" : "#E6E1D6") + '" stroke="' + (on ? "#C68A1E" : "#D3CCBD") + '" stroke-width="1.2" stroke-linejoin="round"/></svg>'; }
+  function starsFor(r) { if (!r) return 0; var base = r.boss ? r.pts / 2 : r.pts; return base >= 800 ? 3 : base >= 500 ? 2 : 1; }
+  function isBoss(P, i) { return P.qs.length >= 3 && i === P.qs.length - 1; }
+  function totals(P) {
+    var done = P.results.filter(Boolean);
+    return { pts: done.reduce(function (a, r) { return a + r.pts; }, 0), stars: done.reduce(function (a, r) { return a + starsFor(r); }, 0), n: done.length };
+  }
+  function hud(P) {
+    var t = totals(P);
+    setTop('<span class="hud">' + esc(S.team) + '</span><span class="hud">스테이지 <b>' + Math.min(P.idx + 1, P.qs.length) + '/' + P.qs.length + '</b></span><span class="hud">' + starSVG(true) + '<b>' + t.stars + '</b></span><span class="hud">점수 <b>' + t.pts.toLocaleString() + '</b></span>');
+  }
+
+  /* ========== 시작 ========== */
+  screens.home = function () {
+    var hs = hashSet();
+    app.innerHTML =
+      '<div style="display:grid;gap:18px">' +
+      '<section class="title-screen"><svg class="hero-art" viewBox="0 0 200 200" aria-hidden="true">' +
+      '<circle cx="100" cy="104" r="84" fill="#21405A" stroke="rgb(255 255 255 / .35)" stroke-width="1.5"/>' +
+      '<g fill="none" stroke="rgb(255 255 255 / .14)" stroke-width="1.2"><ellipse cx="100" cy="104" rx="42" ry="84"/><ellipse cx="100" cy="104" rx="70" ry="84"/><path d="M16 104 H184 M26 62 H174 M26 146 H174"/></g>' +
+      '<path d="M62 46 C88 38 116 52 112 78 C110 92 94 98 97 112 C99 126 118 132 116 152 C114 170 98 176 90 166 C84 152 90 136 78 122 C64 106 46 96 52 72 C55 58 56 50 62 46Z" fill="#F3E8CB"/>' +
+      '<path d="M140 70 C150 66 162 72 164 82 C160 90 150 92 144 86 C138 82 136 76 140 70Z" fill="rgb(255 255 255 / .28)"/>' +
+      '<path d="M148 104 C160 102 170 112 168 128 C164 142 150 146 144 136 C140 126 140 110 148 104Z" fill="rgb(255 255 255 / .28)"/>' +
+      '<path d="M152 116 C130 120 104 112 88 94" fill="none" stroke="#E3A73A" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="1 7"/>' +
+      '<g class="pin"><path d="M84 36 C71 36 64 46 64 55 C64 69 84 88 84 88 C84 88 104 69 104 55 C104 46 97 36 84 36Z" fill="#D9572B"/><circle cx="84" cy="55" r="7" fill="#fff"/></g></svg>' +
+      '<div class="title-text"><span class="badge">중학교 지리 · 아메리카의 문화</span><h1>아메리카,<br><em>문화가 만나는 자리</em></h1><p>음악·음식·스포츠 속 단서로 그 문화가 생겨난 곳을 추리하고, 어떤 문화가 섞였는지 찾아보세요.</p></div></section>' +
+      (hs ? '<div class="notice">선생님이 보낸 ‘' + esc(hs.name) + '’(' + hs.qs.length + '스테이지)가 준비되어 있어요.</div>' : "") +
+      '<div class="how3"><div class="how"><span class="hn">1</span><b>단서 분석</b><span>힌트를 쓰면 지도에 범위가 표시되지만 점수가 줄어요</span></div>' +
+      '<div class="how"><span class="hn">2</span><b>위치 표시</b><span>실제 장소와 가까울수록 높은 점수 (최대 1,000점)</span></div>' +
+      '<div class="how"><span class="hn">3</span><b>섞인 문화 찾기</b><span>인구 지도를 근거로 고르기 (정답마다 +100점)</span></div></div>' +
+      '<div class="modes"><button class="mode play" type="button" data-m="setup"><b>게임 시작</b><span>모둠 대항전</span></button>' +
+      '<button class="mode" type="button" data-m="maker"><b>출제실</b><span>우리 모둠이 문제 내기</span></button>' +
+      '<button class="mode" type="button" data-m="teacher"><b>선생님</b><span>점수판 · 반 지도</span></button></div></div>';
+    app.querySelector(".modes").addEventListener("click", function (e) { var b = e.target.closest("[data-m]"); if (b) go(b.dataset.m); });
+  };
+
+  /* ========== 모험 지도 (스테이지 진행판) ========== */
+  function stageLayout(n) {
+    var perRow = n <= 7 ? n : 5, rows = Math.ceil(n / perRow), W = 1000, rowH = n <= 7 ? 0 : 200, H = n <= 7 ? 400 : rows * rowH + 80, pts = [];
+    for (var i = 0; i < n; i++) {
+      var r = Math.floor(i / perRow), c = i % perRow, cols = Math.min(perRow, n - r * perRow);
+      if (r % 2 === 1) c = cols - 1 - c;
+      var x = cols === 1 ? W / 2 : 110 + c * ((W - 220) / (Math.max(perRow, 2) - 1));
+      var y = n <= 7 ? (i % 2 ? 250 : 150) : 120 + r * rowH + (c % 2 ? 40 : 0);
+      pts.push([x, y]);
+    }
+    return { W: W, H: H, pts: pts };
+  }
+  function lockIcon(x, y) { return '<g transform="translate(' + (x - 11) + ' ' + (y - 13) + ')"><rect x="1" y="10" width="20" height="14" rx="3" fill="#8EA3B4"/><path d="M5.5 10 V7 a5.5 5.5 0 0 1 11 0 V10" fill="none" stroke="#8EA3B4" stroke-width="2.6"/></g>'; }
+  function crown(x, y) { return '<path transform="translate(' + (x - 22) + ' ' + (y - 16) + ')" d="M2 26 L4 6 L14 16 L22 2 L30 16 L40 6 L42 26 Z" fill="#E3A73A" stroke="#172A3A" stroke-width="2" stroke-linejoin="round"/>'; }
+  /* ========== 게임 방법 ========== */
+  screens.rules = function () {
+    var P = S.play; if (!P) return go("home");
+    hud(P);
+    var chip = function (c) { return '<span class="rchip" style="--c:' + ROOT[c].color + '"><i></i>' + ROOT[c].ko + '</span>'; };
+    var steps = [
+      ['단서 읽기', '음악·음식·축제 같은 문화에 대한 설명을 읽어요. 어려우면 힌트를 열어요. 힌트를 열 때마다 지도에 정답이 있는 범위가 좁혀지지만, 위치 점수는 20%씩 줄어요.'],
+      ['위치 표시', '이 문화가 생겨난 곳을 지도에서 눌러요. 흰 점은 주요 도시이고, 점에 마우스를 올리면 도시 정보를 볼 수 있어요. 실제 장소와 가까울수록 점수가 높아요. <em>최대 1,000점</em>'],
+      ['섞인 문화 고르기', '이 문화를 만든 사람들을 모두 골라요. 단서에 나온 사람들을 찾고, 지도 아래 ‘인구 지도’ 버튼으로 그 지역에 실제로 많이 살았는지 확인해요. <em>맞히면 +100점 · 틀리면 −50점</em>'],
+      ['예시로 확인하기', '<span class="ex-clue">“<mark>아프리카에서 끌려온 사람들</mark>의 북 장단에 <mark>유럽에서 온</mark> 작은 기타 소리가 섞인 음악이에요.”</span>' +
+        '<span class="ex-ans"><span>정답</span>' + chip("afro") + chip("euro") + '</span>' +
+        '<span class="ex-notes">· 지금 인구가 적더라도, 역사 속에서 문화를 남긴 사람들이라면 골라요.<br>· 혼혈은 여러 문화가 섞인 결과라서 선택지에 없어요.</span>'],
+      ['별과 보스 스테이지', '점수에 따라 스테이지마다 별을 1~3개 받아요. 마지막 <b>보스 스테이지</b>는 점수가 2배지만, 힌트를 1개만 쓸 수 있어요.']
+    ];
+    var done = P.rulesOk ? steps.length : 0;
+    function draw() {
+      var all = done >= steps.length;
+      app.innerHTML = '<section class="card rules"><div class="row spread"><div><div class="kicker">시작하기 전에</div><h2>게임 방법</h2></div><span class="rule-count">' + Math.min(done, steps.length) + ' / ' + steps.length + ' 확인</span></div>' +
+        '<ol class="rule-steps">' + steps.map(function (st, i) {
+          var state = i < done ? "done" : i === done ? "now" : "later";
+          return '<li class="' + state + (i === 3 ? " ex" : "") + '"><span class="hn">' + (i + 1) + '</span><div><b>' + st[0] + '</b><p>' + st[1] + '</p></div>' +
+            '<button type="button" class="okbtn" data-ok="' + i + '"' + (state === "now" ? "" : " disabled") + ' aria-label="' + st[0] + ' 확인">' +
+            '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5 L10 17.5 L19 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>' + (state === "done" ? "확인 완료" : "확인했어요") + '</span></button></li>';
+        }).join("") + '</ol>' +
+        '<button class="btn big" type="button" id="toBoard"' + (all ? "" : " disabled") + '>' + (all ? "모험 지도로 →" : "규칙을 모두 확인하면 출발할 수 있어요") + '</button></section>';
+      app.querySelector(".rule-steps").addEventListener("click", function (e) {
+        var b = e.target.closest("[data-ok]"); if (!b || b.disabled) return;
+        done = +b.dataset.ok + 1; if (done >= steps.length) { P.rulesOk = true; save(); }
+        draw();
+        var nx = app.querySelector(".rule-steps li.now") || $("#toBoard");
+        if (nx && nx.scrollIntoView) nx.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+      $("#toBoard").onclick = function () { go("stage"); };
+    }
+    draw();
+  };
+
+  screens.stage = function () {
+    var P = S.play; if (!P) return go("home");
+    hud(P);
+    var L = stageLayout(P.qs.length), all = P.idx >= P.qs.length;
+    var s = '<svg viewBox="0 0 ' + L.W + ' ' + L.H + '" role="img" aria-label="스테이지 진행판">' +
+      '<defs><pattern id="wave" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0 V60 M0 60 H60" fill="none" stroke="#fff" stroke-opacity=".05" stroke-width="1"/></pattern></defs>' +
+      '<rect width="' + L.W + '" height="' + L.H + '" fill="url(#wave)"/>';
+    // 길
+    var d = "M" + L.pts.map(function (p) { return p[0] + " " + p[1]; }).join(" L");
+    s += '<path d="' + d + '" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round" stroke-linejoin="round"/>';
+    if (P.idx > 0) { var dd = "M" + L.pts.slice(0, Math.min(P.idx, P.qs.length - 1) + 1).map(function (p) { return p[0] + " " + p[1]; }).join(" L"); s += '<path d="' + dd + '" fill="none" stroke="#E3A73A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>'; }
+    P.qs.forEach(function (q, i) {
+      var p = L.pts[i], x = p[0], y = p[1], R = P.results[i], boss = isBoss(P, i), rr = boss ? 48 : 38;
+      var state = R ? "cleared" : i === P.idx ? "current" : "locked";
+      var fill = state === "cleared" ? "#F3E8CB" : state === "current" ? "#D9572B" : "#2B4B63";
+      s += '<g class="node ' + state + (P.just === i ? " just" : "") + '"' + (state === "current" ? ' tabindex="0" role="button" aria-label="스테이지 ' + (i + 1) + ' 시작" data-go-stage="1"' : ' aria-label="스테이지 ' + (i + 1) + (state === "cleared" ? " 클리어" : " 잠김") + '"') + '>';
+      if (state === "current") s += '<circle class="pulse" cx="' + x + '" cy="' + y + '" r="' + rr + '" fill="none" stroke="#D9572B" stroke-width="4"/>';
+      s += '<circle class="face" cx="' + x + '" cy="' + y + '" r="' + rr + '" fill="' + fill + '" stroke="' + (state === "locked" ? "#3E5F78" : state === "cleared" ? "#E3A73A" : "#fff") + '" stroke-width="' + (state === "current" ? 4 : 3) + '"/>';
+      if (state === "locked") s += lockIcon(x, y);
+      else s += '<text x="' + x + '" y="' + (y + 12) + '" text-anchor="middle" font-family="Pretendard, Noto Sans KR, sans-serif" font-weight="900" font-size="' + (boss ? 36 : 32) + '" fill="' + (state === "cleared" ? "#172A3A" : "#fff") + '">' + (i + 1) + '</text>';
+      if (boss) s += crown(x, y - rr - 6);
+      if (R) { var st = starsFor(R); for (var k = 0; k < 3; k++) s += '<g transform="translate(' + (x - 40 + k * 26) + ' ' + (y - rr - (boss ? 52 : 34)) + ') scale(.95)"><path d="' + STAR_PATH + '" fill="' + (k < st ? "#E3A73A" : "#3E5F78") + '"/></g>'; }
+      var label = R ? (q.place || q.title).split(" ").slice(-1)[0] : (boss ? "보스 · " : "") + q.cat;
+      s += '<text x="' + x + '" y="' + (y + rr + 32) + '" text-anchor="middle" font-family="Pretendard, Noto Sans KR, sans-serif" font-weight="700" font-size="20" fill="' + (state === "locked" ? "#8EA3B4" : "#fff") + '">' + esc(label) + '</text></g>';
+    });
+    s += '</svg>';
+    var t = totals(P);
+    app.innerHTML = '<div style="display:grid;gap:16px"><div class="row spread"><h2 style="font-size:32px">모험 지도</h2><span class="row"><button class="btn small ghost" type="button" id="howto">게임 방법</button><span class="hint" style="font-weight:700">별 ' + t.stars + ' / ' + (P.qs.length * 3) + ' · ' + t.pts.toLocaleString() + '점</span></span></div>' +
+      '<div class="board-wrap">' + s + '</div><div class="stage-foot"><p class="hint">' + (all ? "모든 스테이지를 깼어요!" : isBoss(P, P.idx) ? "마지막은 보스 스테이지! 점수 ×2, 힌트는 1개만 쓸 수 있어요." : "주황색 스테이지를 눌러 시작해요. 별은 점수에 따라 1~3개!") + '</p>' +
+      (all ? '<button class="btn big" type="button" id="toResult" style="width:auto">최종 결과 보기</button>' : '<button class="btn big" type="button" id="play" style="width:auto">스테이지 ' + (P.idx + 1) + ' 시작!</button>') + '</div></div>';
+    P.just = null; save();
+    var startIt = function () { go("round"); };
+    if ($("#play")) $("#play").onclick = startIt;
+    if ($("#toResult")) $("#toResult").onclick = function () { go("result"); };
+    $("#howto").onclick = function () { go("rules"); };
+    var cur = app.querySelector("[data-go-stage]");
+    if (cur) { cur.addEventListener("click", startIt); cur.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); startIt(); } }); }
+  };
+
+  /* ========== 스테이지 (문제 풀기) ========== */
+  screens.round = function () {
+    var P = S.play; if (!P) return go("home");
+    if (P.idx >= P.qs.length) return go("stage");
+    var q = P.qs[P.idx], boss = isBoss(P, P.idx), maxHints = boss ? 1 : 3;
+    if (!P.cur) P.cur = { pin: null, hints: 0, roots: [], done: false };
+    var C = P.cur;
+    hud(P);
+    app.innerHTML = '<div class="game"><div style="display:grid;gap:10px;min-width:0"><div class="mapbox" id="map"></div><div id="layers"></div></div><div class="panel" id="panel"></div></div>';
+    var mv = MapView($("#map"), { id: "g", msg: C.done ? "" : "이 문화가 생겨난 곳을 표시하세요", onPick: function (lon, lat, name) { if (C.done) return; C.pin = [lon, lat]; C.pinName = name || ""; save(); drawPin(); renderPanel(); mv.setMsg(""); }, ready: function () { drawPin(); drawArea(); } });
+    function drawArea() { var a = C.done ? null : hintArea(q, C.hints); mv.area(a && a[0], a && a[1], a && a[2]); }
+    $("#layers").appendChild(layerChips(mv, S.layer, function (k) { S.layer = k; save(); }));
+    if (S.layer) setTimeout(function () { mv.setLayer(S.layer); }, 0);
+    function drawPin() { mv.clear(); if (C.done) { showAnswer(false); return; } if (C.pin) mv.pin(C.pin[0], C.pin[1], "#172A3A", C.pinName ? "우리 답 · " + C.pinName : "우리 답"); }
+    function showAnswer(animate) {
+      mv.line(C.pin, [q.lon, q.lat], "#172A3A", true);
+      drawRoots(mv, q, animate);
+      mv.pin(C.pin[0], C.pin[1], "#172A3A", C.pinName ? "우리 답 · " + C.pinName : "우리 답");
+      mv.pin(q.lon, q.lat, "#D9572B", q.place || q.title);
+      mv.setMsg("");
+    }
+    function renderPanel() {
+      var h;
+      if (!C.done) {
+        h = '<div class="qcard"><div class="qhead"><span class="cat">' + esc(q.cat) + '</span>' + (boss ? '<span class="boss-tag">보스 · 점수 ×2</span>' : "") + '<span class="stage-no">STAGE ' + (P.idx + 1) + '</span></div>' +
+          '<p class="qclue">' + esc(q.clue) + '</p><div class="hintrow">';
+        for (var i = 0; i < maxHints; i++) {
+          if (!q.hints[i]) continue;
+          var open = i < C.hints;
+          h += '<button type="button" class="hbtn' + (open ? " open" : "") + '" data-hint="' + i + '"' + (open || i !== C.hints ? " disabled" : "") + '>힌트 ' + (i + 1) + (open ? "" : " · −20%") + '</button>';
+        }
+        h += '</div>';
+        if (C.hints) h += '<div class="hintlist">' + q.hints.slice(0, C.hints).map(function (t, i) { return '<p><b>힌트 ' + (i + 1) + '</b>' + esc(t) + '</p>'; }).join("") + '</div>';
+        h += '</div>' +
+          '<div class="task' + (C.pin ? " done" : "") + '"><h3><span class="sn">' + (C.pin ? "✓" : "1") + '</span>지도에 위치 표시하기</h3><p class="hint" style="margin-top:-4px">' + (C.pin && C.pinName ? "고른 곳: <b>" + esc(C.pinName) + "</b>" + cityBrief(C.pinName) : "흰 점은 주요 도시예요. 점에 마우스를 올리면 도시 개관이 나와요.") + (C.hints ? " 노란 범위 안에 정답이 있어요." : "") + '</p></div>' +
+          '<div class="task' + (C.roots.length ? " done" : "") + '"><h3><span class="sn">' + (C.roots.length ? "✓" : "2") + '</span>누구의 문화가 섞였을까?</h3><p class="hint" style="margin-top:-4px">이 문화를 만든 사람들을 모두 골라요. 단서에서 찾고, 인구 지도로 확인해요.</p><div class="rootchips">' +
+          Object.keys(ROOT).map(function (c) { return '<button type="button" class="rchip" style="--c:' + ROOT[c].color + '" data-root="' + c + '" aria-pressed="' + (C.roots.indexOf(c) >= 0) + '"><i></i>' + ROOT[c].ko + '</button>'; }).join("") +
+          '</div></div>' +
+          '<button class="btn big" type="button" id="submit"' + (C.pin && C.roots.length ? "" : " disabled") + '>정답 확인!</button>';
+      } else {
+        var R = P.results[P.idx], need = {}, st = starsFor(R);
+        q.roots.forEach(function (r) { need[r.cat] = 1; });
+        h = '<div class="clear-card"><div class="clear-title">' + (boss ? "보스 클리어!" : "STAGE CLEAR!") + '</div><div class="stars">' + starSVG(st >= 1) + starSVG(st >= 2) + starSVG(st >= 3) + '</div>' +
+          '<div class="answer-name">' + esc(q.title) + '<small>' + esc(q.place) + '</small></div>' +
+          '<div class="pts-row"><div><small>거리</small><b>' + Math.round(R.km).toLocaleString() + 'km</b></div><div><small>위치</small><b>' + R.dp + '</b></div><div><small>섞인 문화</small><b>+' + R.rp + '</b></div><div class="total"><small>' + (boss ? "합계 ×2" : "합계") + '</small><b>' + R.pts + '</b></div></div>' +
+          '<div class="rootchips" style="justify-content:center">' + Object.keys(ROOT).map(function (c) { var on = C.roots.indexOf(c) >= 0, ok = need[c]; if (!on && !ok) return ""; return '<span class="rchip ' + (on && ok ? "ok" : on ? "bad" : "miss") + '" style="--c:' + ROOT[c].color + '"><i></i>' + ROOT[c].ko + (on && ok ? " ✓" : on ? " ✗" : " · 놓친 답") + '</span>'; }).join("") + '</div>' +
+          '<p class="explain">' + esc(q.explain) + '</p>' +
+          '<div class="mini-legend"><span><svg width="26" height="8"><path d="M1 4 H20" stroke="#E09A00" stroke-width="3"/><path d="M18 0 L25 4 L18 8Z" fill="#E09A00"/></svg>문화가 건너온 길</span><span><svg width="16" height="16"><circle cx="8" cy="8" r="6" fill="none" stroke="#148A86" stroke-width="2.5" stroke-dasharray="3 2"/></svg>원래 살던 원주민</span></div></div>' +
+          '<button class="btn big" type="button" id="next">' + (P.idx + 1 < P.qs.length ? "모험 지도로 →" : "최종 결과 보기 →") + '</button>';
+      }
+      $("#panel").innerHTML = h;
+    }
+    $("#panel").addEventListener("click", function (e) {
+      var b = e.target.closest("button"); if (!b || b.disabled) return;
+      if (b.dataset.hint != null) { C.hints = +b.dataset.hint + 1; save(); renderPanel(); drawArea(); var a = hintArea(q, C.hints); if (a) mv.focus(a[0], a[1], a[2] > 1000 ? 1.6 : a[2] > 500 ? 2.6 : 4); return; }
+      if (b.dataset.root) { var i = C.roots.indexOf(b.dataset.root); if (i >= 0) C.roots.splice(i, 1); else C.roots.push(b.dataset.root); save(); renderPanel(); return; }
+      if (b.id === "submit") {
+        var km = haversine(C.pin, [q.lon, q.lat]), dp = Math.round(distPoints(km) * HINT_FACTOR[C.hints]), rp = rootScore(q, C.roots), mult = boss ? 2 : 1;
+        P.results[P.idx] = { t: q.title, km: Math.round(km), dp: dp, rp: rp, pts: (dp + rp) * mult, gold: km <= 300, boss: boss };
+        sendScore();
+        C.done = true; save(); drawArea();
+        mv.clear(); showAnswer(true); mv.focus((C.pin[0] + q.lon) / 2, (C.pin[1] + q.lat) / 2, km > 3000 ? 1.2 : km > 1200 ? 1.8 : 2.6);
+        hud(P); renderPanel(); return;
+      }
+      if (b.id === "next") { P.just = P.idx; P.idx++; P.cur = null; save(); go(P.idx < P.qs.length ? "stage" : "result"); }
+    });
+    renderPanel();
+  };
+
+  function sendScore() {
+    var P = S.play; if (!P) return;
+    var done = P.results.filter(Boolean);
+    send("score", S.team, { set: P.name, total: done.reduce(function (a, r) { return a + r.pts; }, 0), golds: done.filter(function (r) { return r.gold; }).length, stars: done.reduce(function (a, r) { return a + starsFor(r); }, 0), n: done.length, of: P.qs.length, rounds: done.map(function (r) { return [r.t, r.pts, r.km]; }) });
+  }
+
+  /* ========== 결과 ========== */
+  screens.result = function () {
+    var P = S.play; if (!P) return go("home");
+    var t = totals(P), golds = P.results.filter(function (r) { return r && r.gold; }).length;
+    hud(P);
+    var code = enc("S1", { team: S.team, set: P.name, total: t.pts, golds: golds, stars: t.stars, rounds: P.results.filter(Boolean).map(function (r) { return [r.t, r.pts, r.km]; }), at: Date.now() });
+    app.innerHTML = '<section class="card" style="text-align:center;justify-items:center"><div class="kicker">모험 완료!</div><h2>' + esc(S.team) + '</h2>' +
+      '<div class="big-score">' + t.pts.toLocaleString() + '점</div><div class="stars">' + [1, 2, 3].map(function (k) { return starSVG(t.stars >= k * P.qs.length); }).join("") + '</div>' +
+      '<p class="hint" style="font-weight:700">별 ' + t.stars + ' / ' + (P.qs.length * 3) + ' · 황금 도장 ' + golds + '개</p>' +
+      '<div class="stamps" style="justify-content:center">' + P.qs.map(function (q, i) { return stampSVG(q, i, P.results[i] && P.results[i].gold); }).join("") + '</div>' +
+      '<div class="table-wrap" style="width:100%"><table class="res-table"><thead><tr><th>스테이지</th><th class="n">별</th><th class="n">거리</th><th class="n">점수</th></tr></thead><tbody>' +
+      P.results.map(function (r, i) { if (!r) return ""; return '<tr><td>' + (i + 1) + '. ' + esc(r.t) + (r.boss ? " (보스)" : "") + '</td><td class="n">' + "★".repeat(starsFor(r)) + '</td><td class="n">' + r.km.toLocaleString() + 'km</td><td class="n"><b>' + r.pts + '</b></td></tr>'; }).join("") + '</tbody></table></div>' +
+      (connected() ? '<p class="notice">✓ 점수가 선생님 점수판에 자동으로 올라갔어요!</p>' : "") +
+      '<details style="width:100%;text-align:left"' + (connected() ? "" : " open") + '><summary class="hint">' + (connected() ? "자동으로 안 올라갔을 때: 점수 코드" : "선생님께 보낼 점수 코드") + '</summary><div class="codebox" style="margin-top:8px"><textarea class="code" readonly id="code">' + code + '</textarea><div class="row"><button class="btn small" type="button" id="copy">점수 코드 복사</button><span class="toast" id="toast"></span></div></div></details>' +
+      '<div class="row spread" style="width:100%"><button class="btn ghost" type="button" id="home2">처음으로</button><button class="btn" type="button" id="maker2">우리 모둠도 문제 내기 →</button></div></section>';
+    $("#copy").onclick = function () { copy(code, $("#toast")); };
+    sendScore();
+    $("#home2").onclick = function () { go("home"); };
+    $("#maker2").onclick = function () { go("maker"); };
+  };
+
+  /* ========== 출제실 ========== */
+  screens.maker = function () {
+    var D = S.draft || (S.draft = { by: S.team || "", cat: "음악", title: "", place: "", lat: null, lon: null, clue: "", hints: ["", "", ""], roots: [{ cat: "afro", from: "wafrica" }], explain: "" });
+    app.innerHTML = '<section class="card"><div class="kicker">출제실</div><h2>우리 모둠이 좋아하는 섞인 문화로 문제 내기</h2>' +
+      '<p class="lead">좋아하는 분야에서 섞여서 생긴 문화를 조사해 문제를 내요. 너무 쉽지도, 너무 어렵지도 않게!</p>' +
+      '<div class="maker"><div class="form" id="form"></div><div style="display:grid;gap:10px;min-width:0"><div class="mapbox" id="mmap"></div><p class="hint">지도를 눌러 <b>태어난 곳</b>을 찍어요.</p><div class="stepbox"><h3>문제 체크리스트</h3><div class="check" id="check"></div></div><div id="out"></div></div></div></section>';
+    var mv = MapView($("#mmap"), { id: "mk", msg: "태어난 곳을 찍으세요", onPick: function (lon, lat) { D.lon = +lon.toFixed(2); D.lat = +lat.toFixed(2); save(); preview(); check(); }, ready: function () { preview(); } });
+    function preview() { mv.clear(); if (D.lat == null) return; drawRoots(mv, D, false); mv.pin(D.lon, D.lat, "#B3261E", D.place || "태어난 곳"); mv.setMsg(""); }
+    var originOpts = function (cat, sel) { return Object.keys(ORIGIN).filter(function (k) { return ORIGIN[k].cat === cat || (cat === "native" && k === "here"); }).map(function (k) { return '<option value="' + k + '"' + (k === sel ? " selected" : "") + '>' + ORIGIN[k].ko + '</option>'; }).join(""); };
+    function form() {
+      var f = '<label class="f">모둠 이름<input type="text" data-k="by" maxlength="20" value="' + esc(D.by) + '"></label>' +
+        '<label class="f">분야<select data-k="cat">' + CATS.map(function (c) { return '<option' + (c === D.cat ? " selected" : "") + '>' + c + '</option>'; }).join("") + '</select></label>' +
+        '<label class="f">정답 (문화 이름)<span class="sub">예) 레게톤, 브레이크댄스, 퀘벡의 푸틴</span><input type="text" data-k="title" maxlength="40" value="' + esc(D.title) + '"></label>' +
+        '<label class="f">태어난 곳 이름<span class="sub">나라와 도시. 예) 푸에르토리코 산후안</span><input type="text" data-k="place" maxlength="40" value="' + esc(D.place) + '"></label>' +
+        '<label class="f">첫 단서 (문화 설명)<span class="sub">정답 이름과 장소 이름은 쓰지 마세요. <b>누가 무엇을 가져왔는지</b> 드러나게 써요. (예: 아프리카계의 북 장단 + 스페인의 기타)</span><textarea data-k="clue" maxlength="300">' + esc(D.clue) + '</textarea></label>';
+      [0, 1, 2].forEach(function (i) { f += '<label class="f">힌트 ' + (i + 1) + '<span class="sub">' + ["넓은 지역 (대륙·바다 정도만)", "나라를 알 수 있는 힌트", "도시를 알 수 있는 힌트"][i] + '</span><input type="text" data-h="' + i + '" maxlength="150" value="' + esc(D.hints[i]) + '"></label>'; });
+      f += '<div class="f" style="display:grid;gap:8px"><b style="font-size:14.5px">섞인 문화 (어디서 왔나요?)</b>';
+      D.roots.forEach(function (r, i) {
+        f += '<div class="rootrow"><select data-rc="' + i + '" aria-label="섞인 문화 ' + (i + 1) + ' 종류">' + Object.keys(ROOT).map(function (c) { return '<option value="' + c + '"' + (c === r.cat ? " selected" : "") + '>' + ROOT[c].ko + '</option>'; }).join("") + '</select>' +
+          '<select data-rf="' + i + '" aria-label="섞인 문화 ' + (i + 1) + ' 출발지">' + originOpts(r.cat, r.from) + '</select><button type="button" class="btn ghost small" data-rx="' + i + '" aria-label="섞인 문화 ' + (i + 1) + ' 빼기">빼기</button></div>';
+      });
+      f += '<button type="button" class="btn ghost small" id="addroot"' + (D.roots.length >= 6 ? " disabled" : "") + '>+ 문화 추가</button></div>' +
+        '<label class="f">정답 설명<span class="sub">어떤 사람들이 왜 이동해서 만났는지, 그곳의 인구 구성과 연결해 써요.</span><textarea data-k="explain" maxlength="400">' + esc(D.explain) + '</textarea></label>';
+      $("#form").innerHTML = f;
+    }
+    function check() {
+      var items = [
+        [D.title.trim(), "정답 이름"], [D.lat != null, "지도에 태어난 곳 찍기"],
+        [D.clue.trim().length >= 30, "첫 단서 30자 이상"], [D.title.trim() && D.clue.indexOf(D.title.trim()) < 0, "첫 단서에 정답 이름이 없음"],
+        [D.hints.every(function (h) { return h.trim().length >= 5; }), "힌트 3개"], [D.roots.length >= 2, "섞인 문화 2개 이상"], [D.explain.trim().length >= 30, "정답 설명 30자 이상"]
+      ];
+      $("#check").innerHTML = items.map(function (x) { return '<span class="' + (x[0] ? "on" : "off") + '">' + (x[0] ? "✓ " : "○ ") + x[1] + '</span>'; }).join("");
+      var ok = items.every(function (x) { return x[0]; });
+      $("#out").innerHTML = ok ? '<button class="btn gold" type="button" id="make">문제 코드 만들기</button>' : '<p class="hint">체크리스트를 모두 채우면 문제 코드를 만들 수 있어요.</p>';
+      return ok;
+    }
+    form(); check();
+    $("#form").addEventListener("input", function (e) {
+      var t = e.target;
+      if (t.dataset.k) D[t.dataset.k] = t.value; else if (t.dataset.h != null) D.hints[+t.dataset.h] = t.value;
+      if (t.dataset.k === "place") preview();
+      save(); check();
+    });
+    $("#form").addEventListener("change", function (e) {
+      var t = e.target;
+      if (t.dataset.rc != null) { var r = D.roots[+t.dataset.rc]; r.cat = t.value; r.from = Object.keys(ORIGIN).filter(function (k) { return ORIGIN[k].cat === r.cat || (r.cat === "native" && k === "here"); })[0]; form(); }
+      if (t.dataset.rf != null) D.roots[+t.dataset.rf].from = t.value;
+      if (t.dataset.k === "cat") D.cat = t.value;
+      save(); preview(); check();
+    });
+    $("#form").addEventListener("click", function (e) {
+      var b = e.target.closest("button"); if (!b) return;
+      if (b.id === "addroot") { D.roots.push({ cat: "euro", from: "spain" }); }
+      else if (b.dataset.rx != null) { D.roots.splice(+b.dataset.rx, 1); }
+      else return;
+      save(); form(); preview(); check();
+    });
+    $("#out").addEventListener("click", function (e) {
+      var b = e.target.closest("button"); if (!b) return;
+      if (b.id === "make") {
+        var q = cleanQ(D), code = enc("Q1", q);
+        $("#out").innerHTML = (connected() ? '<div class="stepbox"><b>선생님에게 바로 보내기</b><div class="row"><button class="btn gold" type="button" id="sendq">이 문제 보내기</button><span class="toast" id="toasts"></span></div><p class="hint">보내면 다른 모둠이 ‘2라운드’에서 이 문제를 풀어요. 고친 뒤 다시 보내면 새 문제로 바뀌어요.</p></div>' : "") + '<div class="codebox"><b>' + (connected() ? "자동으로 안 보내질 때: " : "") + '우리 모둠 문제 코드</b><textarea class="code" readonly>' + code + '</textarea><div class="row"><button class="btn" type="button" id="copyq">문제 코드 복사</button><button class="btn ghost" type="button" id="tryq">미리 풀어 보기</button><span class="toast" id="toastq"></span></div><p class="hint">복사해서 선생님이 알려 준 곳에 붙여 넣으세요. 선생님이 모든 모둠의 문제를 모아 반 문제집을 만들어요.</p></div>';
+        $("#copyq").onclick = function () { copy(code, $("#toastq")); };
+        if ($("#sendq")) $("#sendq").onclick = function () { var b = this; b.disabled = true; send("q", q.by || S.team || "", q).then(function (ok) { $("#toasts").textContent = ok ? "보냈어요! 선생님 화면에서 확인할 수 있어요." : "보내지 못했어요. 아래 코드를 복사해 선생님께 주세요."; b.disabled = false; }); };
+        $("#tryq").onclick = function () { S.play = { name: "미리 풀기", qs: [q], idx: 0, results: [], cur: null }; S.team = S.team || D.by || "우리 모둠"; save(); go("round"); };
+      }
+    });
+  };
+
+  /* ========== 선생님 ========== */
+  var REMOTE = { scores: [], questions: [], hidden: {}, ok: false, err: "" };
+  function refreshRemote() {
+    if (!connected()) { REMOTE.ok = false; return Promise.resolve(REMOTE); }
+    return fetchRoom(S.room).then(function (d) { REMOTE.scores = d.scores || []; REMOTE.questions = d.questions || []; REMOTE.hidden = d.hidden || {}; REMOTE.ok = true; REMOTE.err = ""; REMOTE.at = new Date(); return REMOTE; },
+      function (e) { REMOTE.ok = false; REMOTE.err = e.message; return REMOTE; });
+  }
+  function liveStatus() {
+    if (!connected()) return '<p class="hint">구글 시트가 연결되지 않았어요. ‘⓪ 연결 설정’에서 연결하면 자동으로 모여요. 연결하지 않아도 코드를 붙여 넣어 쓸 수 있어요.</p>';
+    return '<p class="hint" style="color:' + (REMOTE.ok ? "var(--ok)" : "var(--bad)") + '">' + (REMOTE.ok ? "✓ ‘" + esc(S.room) + "’ 반과 연결됨 · " + (REMOTE.at ? REMOTE.at.toLocaleTimeString() : "") + " 기준 (5초마다 새로 고침)" : "연결 확인 중이거나 연결이 안 돼요. " + esc(REMOTE.err)) + '</p>';
+  }
+
+  screens.teacher = function (tab) {
+    clearInterval(POLL);
+    tab = tab || S.ttab || "conn"; S.ttab = tab; save();
+    var T = S.teach || (S.teach = { qcodes: "", scodes: "", name: "우리 반 문제집", useDefault: true });
+    T.bonus = T.bonus || {};
+    app.innerHTML = '<section class="card"><div class="kicker">선생님</div><h2>선생님 화면</h2><div class="tabs" role="tablist">' +
+      [["conn", "⓪ 연결 설정"], ["set", "① 반 문제집"], ["board", "② 점수판"], ["atlas", "③ 반 전체 지도"], ["guide", "수업 안내"]].map(function (t) { return '<button class="tab" type="button" role="tab" data-t="' + t[0] + '" aria-selected="' + (t[0] === tab) + '">' + t[1] + '</button>'; }).join("") +
+      '</div><div id="tbody"></div></section>';
+    app.querySelector(".tabs").addEventListener("click", function (e) { var b = e.target.closest("[data-t]"); if (b) screens.teacher(b.dataset.t); });
+    var body = $("#tbody");
+    function collected() {
+      var pasted = decAll(T.qcodes).filter(function (x) { return x.kind === "Q1"; }).map(function (x) { return x.data; }).filter(validQ).map(cleanQ);
+      var remote = roomQuestions(REMOTE).filter(function (q) { return !REMOTE.hidden[qid(q)]; });
+      return (T.useDefault ? DEFAULT_SET.slice() : []).concat(remote, pasted);
+    }
+
+    if (tab === "conn") {
+      var base = location.href.split("#")[0];
+      body.innerHTML = '<p class="lead">구글 시트를 한 번 연결해 두면, 학생들이 문제를 풀 때마다 <b>점수가 자동으로 점수판에 올라가고</b>, 출제실에서 만든 문제도 <b>자동으로 모여요.</b> 코드를 복사해 붙여 넣을 필요가 없어요.</p>' +
+        '<div class="stepbox"><h3>처음 한 번만: 구글 시트 준비 (5분)</h3><ol style="margin:0;padding-left:20px;display:grid;gap:6px;font-size:14.5px">' +
+        '<li>구글 드라이브에서 <b>새 구글 시트</b>를 만들어요.</li>' +
+        '<li>시트 메뉴 <b>확장 프로그램 → Apps Script</b>를 눌러요. 원래 있던 글을 모두 지우고, 아래 코드를 붙여 넣고 저장해요.</li>' +
+        '<li>오른쪽 위 <b>배포 → 새 배포</b> → 톱니바퀴에서 <b>웹 앱</b>을 골라요. <b>실행 계정: 나</b>, <b>액세스 권한: 모든 사용자</b>로 두고 배포해요. (처음엔 권한 허용 창이 떠요. 내 계정을 고르고 허용하면 돼요.)</li>' +
+        '<li>나오는 <b>웹 앱 URL</b>(https://script.google.com/macros/s/…/exec)을 복사해 아래 칸에 붙여 넣어요.</li></ol>' +
+        '<textarea class="code" readonly id="gs" style="min-height:140px">' + esc(APPS_SCRIPT) + '</textarea><div class="row"><button class="btn ghost small" type="button" id="copygs">코드 복사</button><span class="toast" id="toastgs"></span></div></div>' +
+        '<label class="f">웹 앱 URL<input id="surl" type="text" placeholder="https://script.google.com/macros/s/…/exec" value="' + esc(S.sheet || SHEET_URL) + '"></label>' +
+        '<label class="f">반 이름<span class="sub">반마다 따로 모여요. 예) 2-3</span><input id="sroom" type="text" maxlength="20" value="' + esc(S.room || "") + '"></label>' +
+        '<div class="row"><button class="btn" type="button" id="test">연결 확인</button><span id="testout" class="hint"></span></div><div id="slink"></div>' +
+        '<div class="stepbox" style="margin-top:14px"><b>이 기기에 저장된 기록 지우기</b><p class="hint">반 이름, 시트 주소, 모둠 이름, 점수, 만들던 문제가 이 브라우저에서 모두 지워져요. 구글 시트에 이미 올라간 기록은 그대로 남아요.</p><div class="row"><button class="btn ghost" type="button" id="wipe">모두 지우고 처음으로</button></div></div>';
+      var drawLink = function () {
+        if (!connected()) { $("#slink").innerHTML = ""; return; }
+        var link = base + "#room=" + encodeURIComponent(S.room) + "&sheet=" + encodeURIComponent(sheetURL());
+        $("#slink").innerHTML = '<div class="codebox"><b>학생용 링크 (이 링크로 들어오면 자동으로 우리 반에 연결돼요)</b><textarea class="code" readonly style="min-height:70px">' + esc(link) + '</textarea><div class="row"><button class="btn" type="button" id="copysl">학생 링크 복사</button><span class="toast" id="toastsl"></span></div></div>';
+        $("#copysl").onclick = function () { copy(link, $("#toastsl")); };
+      };
+      body.addEventListener("input", function (e) { if (e.target.id === "surl") S.sheet = e.target.value.trim(); if (e.target.id === "sroom") S.room = e.target.value.trim(); save(); drawLink(); });
+      $("#copygs").onclick = function () { copy(APPS_SCRIPT, $("#toastgs")); };
+      $("#wipe").onclick = function () {
+        if (!confirm("이 기기에 저장된 반 이름, 시트 주소, 점수, 문제를 모두 지울까요?")) return;
+        try { localStorage.removeItem(KEY); } catch (e) {}
+        location.href = location.pathname;
+      };
+      $("#test").onclick = function () {
+        if (!sheetURL()) { $("#testout").textContent = "웹 앱 URL을 확인해 주세요. https://script.google.com/ 으로 시작해야 해요."; return; }
+        if (!S.room) { $("#testout").textContent = "반 이름을 적어 주세요."; return; }
+        $("#testout").textContent = "확인 중…";
+        refreshRemote().then(function (R) { $("#testout").textContent = R.ok ? "✓ 연결됐어요! 지금까지 점수 " + R.scores.length + "건, 문제 " + R.questions.length + "건이 모였어요." : "연결이 안 돼요: " + R.err + " (배포의 액세스 권한이 ‘모든 사용자’인지 확인해 주세요)"; });
+      };
+      drawLink();
+    } else if (tab === "set") {
+      body.innerHTML = '<div id="live"></div><p class="lead">출제실에서 모둠들이 <b>‘이 문제 보내기’</b>를 누르면 아래 목록에 자동으로 들어와요. 이상한 문제는 <b>숨기기</b>를 누르면 학생 2라운드에서 빠져요. 학생들은 ‘2라운드 · 우리 반 친구들이 낸 문제’를 고르면 바로 풀 수 있어요(자기 모둠 문제는 빼고 나와요).</p>' +
+        '<div class="qlist" id="rlist"></div>' +
+        '<details><summary class="hint" style="cursor:pointer">연결 없이 쓸 때: 문제 코드 붙여 넣어 문제집 링크 만들기</summary><div style="display:grid;gap:10px;margin-top:10px">' +
+        '<label class="f">문제집 이름<input type="text" id="sname" maxlength="30" value="' + esc(T.name) + '"></label>' +
+        '<textarea class="code" id="qcodes" placeholder="Q1.eyJjYXQiOi... 여러 개를 붙여 넣어도 돼요">' + esc(T.qcodes) + '</textarea>' +
+        '<label class="row" style="font-size:14.5px"><input type="checkbox" id="usedef"' + (T.useDefault ? " checked" : "") + '> 선생님 기본 문제(' + DEFAULT_SET.length + '개)도 함께 넣기</label><div id="setout"></div></div></details>';
+      var drawSet = function () {
+        $("#live").innerHTML = liveStatus();
+        var rq = roomQuestions(REMOTE);
+        $("#rlist").innerHTML = !connected() ? "" : rq.length ? rq.map(function (q, i) {
+          var hid = !!REMOTE.hidden[qid(q)];
+          return '<div class="qitem" style="' + (hid ? "opacity:.5" : "") + '"><span class="num">' + (i + 1) + '</span><div><b>' + esc(q.title) + '</b> <small>· ' + esc(q.cat) + ' · ' + esc(q.place) + ' · 출제 ' + esc(q.by || "-") + '</small><br><small>' + esc(q.clue.slice(0, 60)) + '…</small></div><button class="btn ghost small" type="button" data-hide="' + esc(qid(q)) + '" data-on="' + (hid ? "1" : "") + '">' + (hid ? "다시 보이기" : "숨기기") + '</button></div>';
+        }).join("") : '<p class="hint">아직 보낸 문제가 없어요.</p>';
+        var qs = collected();
+        if (!qs.length) { $("#setout").innerHTML = ""; return; }
+        var code = enc("SET1", { name: T.name, qs: qs }), link = location.href.split("#")[0] + "#set=" + code;
+        $("#setout").innerHTML = '<div class="codebox"><b>문제집 링크 (' + qs.length + '문제)</b><textarea class="code" readonly style="min-height:70px">' + esc(link) + '</textarea><div class="row"><button class="btn" type="button" id="copyl">링크 복사</button><button class="btn ghost" type="button" id="copyc">코드만 복사</button><span class="toast" id="toastl"></span></div></div>';
+        $("#copyl").onclick = function () { copy(link, $("#toastl")); };
+        $("#copyc").onclick = function () { copy(code, $("#toastl")); };
+      };
+      body.addEventListener("input", function (e) { if (e.target.id === "qcodes") T.qcodes = e.target.value; if (e.target.id === "sname") T.name = e.target.value; save(); drawSet(); });
+      body.addEventListener("change", function (e) { if (e.target.id === "usedef") { T.useDefault = e.target.checked; save(); drawSet(); } });
+      body.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-hide]"); if (!b) return;
+        var id = b.dataset.hide, unhide = !!b.dataset.on;
+        if (unhide) delete REMOTE.hidden[id]; else REMOTE.hidden[id] = true;
+        drawSet(); send(unhide ? "unhide" : "hide", "선생님", { id: id });
+      });
+      drawSet();
+      if (connected()) { refreshRemote().then(drawSet); POLL = setInterval(function () { refreshRemote().then(drawSet); }, 5000); }
+    } else if (tab === "board") {
+      body.innerHTML = '<div id="live"></div><p class="lead">모둠이 문제를 하나 풀 때마다 점수가 바로 올라와요. 1라운드와 2라운드 점수는 모둠별로 합쳐져요. 선생님 보너스는 각 모둠 칸에 적어요.</p>' +
+        '<div class="board" id="board"></div>' +
+        '<details><summary class="hint" style="cursor:pointer">연결 없이 쓸 때: 점수 코드 붙여 넣기</summary><textarea class="code" id="scodes" style="margin-top:8px" placeholder="S1.eyJ0ZWFtIjoi...">' + esc(T.scodes) + '</textarea></details>';
+      var drawB = function () {
+        $("#live").innerHTML = liveStatus();
+        var latest = {};
+        function add(team, d, at) { if (!team || !d) return; var k = team + "\u0001" + (d.set || ""); if (!latest[k] || at >= latest[k].at) latest[k] = { team: team, at: at, total: +d.total || 0, golds: +d.golds || 0, stars: +d.stars || 0, n: +d.n || (d.rounds || []).length, of: +d.of || 0 }; }
+        REMOTE.scores.forEach(function (it) { add(it.team, it.data, it.at || 0); });
+        decAll(T.scodes).filter(function (x) { return x.kind === "S1" && x.data; }).forEach(function (x) { add(x.data.team, x.data, x.data.at || 0); });
+        var teams = {};
+        Object.keys(latest).forEach(function (k) { var r = latest[k], t = teams[r.team] || (teams[r.team] = { team: r.team, base: 0, golds: 0, stars: 0, n: 0 }); t.base += r.total; t.golds += r.golds; t.stars += r.stars; t.n += r.n; });
+        var list = Object.keys(teams).map(function (k) { var t = teams[k]; t.bonus = +(T.bonus[k] || 0); t.total = t.base + t.bonus; return t; }).sort(function (a, b) { return b.total - a.total; });
+        var max = list.length ? Math.max.apply(null, list.map(function (x) { return x.total; })) || 1 : 1;
+        var focused = document.activeElement && document.activeElement.dataset && document.activeElement.dataset.bonus;
+        if (focused) return; // 보너스를 입력하는 중에는 다시 그리지 않아요
+        $("#board").innerHTML = list.length ? list.map(function (x, i) {
+          return '<div class="brow' + (i === 0 ? " first" : "") + '"><span class="rank">' + (i + 1) + '</span><div><b class="team">' + esc(x.team) + '</b><div class="gs">별 ' + x.stars + ' · 스테이지 ' + x.n + ' · 보너스 <input type="text" inputmode="numeric" data-bonus="' + esc(x.team) + '" value="' + (x.bonus || "") + '" style="width:64px;padding:2px 6px;font-size:13px" aria-label="' + esc(x.team) + ' 보너스 점수"></div></div><span class="barwrap"><i style="width:' + (x.total / max * 100) + '%"></i></span><b class="pts">' + x.total.toLocaleString() + '</b></div>';
+        }).join("") : '<p class="hint">아직 올라온 점수가 없어요.</p>';
+      };
+      body.addEventListener("input", function (e) {
+        if (e.target.id === "scodes") { T.scodes = e.target.value; save(); drawB(); }
+        if (e.target.dataset.bonus) { T.bonus[e.target.dataset.bonus] = parseInt(e.target.value, 10) || 0; save(); }
+      });
+      body.addEventListener("change", function (e) { if (e.target.dataset.bonus) { e.target.blur(); drawB(); } });
+      drawB();
+      if (connected()) { refreshRemote().then(drawB); POLL = setInterval(function () { refreshRemote().then(drawB); }, 5000); }
+    } else if (tab === "atlas") {
+      body.innerHTML = '<div id="live"></div><p class="lead">선생님 문제와 반 친구들이 보낸 문제를 한 지도에 모았어요. 화살표는 문화가 건너온 길이에요. <b>어떤 문화가 어느 지역으로 건너왔는지</b> 데이터 지도와 겹쳐 보며 패턴을 찾아보세요.</p>' +
+        '<div class="keys">' + Object.keys(ROOT).map(function (c) { return '<span><i style="background:' + ROOT[c].color + '"></i>' + ROOT[c].ko + '</span>'; }).join("") + '<span>점선 동그라미 = 그 땅의 원주민</span></div>' +
+        '<div class="mapbox" id="amap"></div><div id="alayers"></div>' +
+        '<div class="stepbox"><h3>함께 이야기해 볼 질문</h3><ol style="margin:0;padding-left:20px;display:grid;gap:4px"><li>아프리카에서 온 문화(노란 화살표)가 도착한 곳은 주로 어디인가요? ‘아프리카계’ 데이터 지도와 비교해 보세요.</li><li>원주민 문화가 많이 남은 사례는 어느 지역에 많나요? ‘원주민’ 데이터 지도에서 그 지역은 어떤 색인가요?</li><li>사람들이 이동한 길과 섞인 문화가 생긴 곳 사이에는 어떤 관계가 있을까요?</li></ol></div>';
+      var am = null;
+      var drawA = function () {
+        $("#live").innerHTML = liveStatus();
+        var qs = collected();
+        am = MapView($("#amap"), { id: "at", ready: function () { qs.forEach(function (q) { drawRoots(am, q, false); }); qs.forEach(function (q) { am.pin(q.lon, q.lat, "#B3261E", q.title); }); } });
+        $("#alayers").innerHTML = ""; $("#alayers").appendChild(layerChips(am, null));
+      };
+      if (connected()) refreshRemote().then(drawA); else drawA();
+    } else {
+      body.innerHTML = guideHTML();
+    }
+  };
+
+  function guideHTML() {
+    return '<div class="teacher-doc" style="display:grid;gap:12px">' +
+      '<h3>성취기준과 학습 목표</h3><p>[9사(지리)05-02] 다양한 민족(인종)으로 구성된 아메리카의 인구 특징을 살펴보고, 사례를 들어 아메리카의 문화 혼종성을 설명한다.</p>' +
+      '<ol><li>인구 지도를 읽고, 아메리카의 인구 구성이 지역마다 다름을 설명할 수 있다.</li><li>자신이 관심 있는 분야의 사례를 조사해, 사람들의 이동으로 문화가 섞여 새로운 문화가 생긴 과정을 설명할 수 있다.</li></ol>' +
+      '<h3>수업 흐름 (2차시 권장)</h3><div class="table-wrap"><table><thead><tr><th>차시</th><th>단계</th><th>활동</th><th>시간</th></tr></thead><tbody>' +
+      '<tr><td>1</td><td>도입</td><td>‘인구 지도’를 함께 켜 보며 아메리카에 누가 사는지, 지역마다 어떻게 다른지 확인</td><td>8분</td></tr>' +
+      '<tr><td>1</td><td>1라운드 (개념 이해)</td><td>모둠 대항으로 선생님 문제 8개(스테이지) 풀기. 인구 지도를 단서로 써서 태어난 곳 찍기·섞인 문화 고르기, 마지막은 보스 스테이지 → 점수가 점수판에 실시간으로 올라감</td><td>25분</td></tr>' +
+      '<tr><td>1</td><td>출제 준비</td><td>모둠이 좋아하는 분야(음악·스포츠·음식·춤 등) 정하고 섞인 문화 사례 찾기 시작</td><td>12분</td></tr>' +
+      '<tr><td>2</td><td>출제 (직접 탐구)</td><td>출제실에서 사례를 조사해 문제 만들기: 태어난 곳, 섞인 문화, 단서·힌트, 정답 설명 → ‘이 문제 보내기’</td><td>20분</td></tr>' +
+      '<tr><td>2</td><td>2라운드</td><td>‘2라운드 · 우리 반 친구들이 낸 문제’로 서로의 문제 풀기 → 점수판(1·2라운드 합산 + 선생님 보너스)</td><td>15분</td></tr>' +
+      '<tr><td>2</td><td>정리</td><td>‘반 전체 지도’에서 문화가 건너온 길의 패턴 찾기 → 인구 구성과 문화 혼종성 연결해 정리</td><td>10분</td></tr></tbody></table></div>' +
+      '<h3>점수 모으기</h3><p>‘⓪ 연결 설정’에서 구글 시트를 한 번 연결하면, 학생 점수와 문제가 자동으로 모여요. 학생에게는 연결 설정에서 만든 <b>학생용 링크</b>를 나눠 주세요. 연결하지 않으면 점수 코드·문제 코드를 붙여 넣는 방식으로도 쓸 수 있어요.</p><h3>섞인 문화를 고르는 기준</h3><ul><li><b>근거 1 (단서 글):</b> 누가 무엇을 가져왔는지 찾아요. 예) “아프리카에서 끌려온 사람들의 북 장단” → 아프리카계</li><li><b>근거 2 (인구 지도):</b> 그 사람들이 그 지역에 실제로 많이 왔거나 살고 있는지 확인해요.</li><li>그 나라에 사는 집단이라도 이 문화에 섞이지 않았다면 고르지 않아요. 예) 브라질에는 원주민이 0.6% 있지만 삼바에는 섞이지 않았어요.</li><li>반대로 지금 인구가 적어도 역사 속에서 문화를 남겼다면 골라요. 예) 아르헨티나의 아프리카계(지금 1% 미만)와 탱고.</li><li>혼혈은 섞인 결과라서 고르는 답에 넣지 않아요.</li></ul><h3>점수 규칙</h3><ul><li>위치 점수: 실제 장소와의 거리로 계산해요 (0km = 1,000점, 500km ≈ 720점, 1,500km ≈ 370점). 300km 안이면 황금 도장.</li><li>힌트를 열 때마다 위치 점수 ×0.8 → ×0.6 → ×0.4. 힌트 1은 대륙·바다, 2는 나라, 3은 도시를 알려 주고, 지도에 정답이 들어 있는 노란 범위(반지름 2,500 → 1,200 → 500km)가 함께 나와요.</li><li>섞인 문화: 맞히면 하나에 +100, 틀리면 −50 (0점 아래로는 내려가지 않아요).</li><li>스테이지마다 점수에 따라 별 1~3개(500점 이상 2개, 800점 이상 3개). 마지막 보스 스테이지는 점수 ×2, 힌트는 1개만.</li><li>선생님 보너스(점수판에 직접 입력): 예) 가장 잘 짠 문제, 근거가 가장 탄탄한 정답 설명, 반 지도에서 패턴 발견.</li></ul>' +
+      '<h3>지도 팁</h3><ul><li>경쟁이 ‘빨리 찍기’로 흐르지 않게, 찍기 전에 모둠이 근거를 한 문장으로 말하게 해 보세요. (“아프리카 리듬이니까 아프리카계가 많은 곳!”)</li><li>출제 때는 정답 설명에 그곳의 인구 구성을 꼭 연결하게 하세요. 데이터 지도에서 확인할 수 있어요.</li><li>정치적 판단(이민 찬반 등)보다 “사람이 이동하면 문화도 함께 이동하고 섞인다”는 사실에 초점을 두세요.</li><li>학생 화면의 기록은 그 기기의 브라우저에만 저장돼요. 결과는 구글 시트(또는 점수 코드·문제 코드)로 모여요.</li></ul>' +
+      '<h3>이 자료가 보통 퀴즈 도구와 다른 점</h3><ul><li>정답을 고르는 대신 <b>지도에 위치를 찍고, 실제 거리로 점수</b>를 매겨요.</li><li>실제 <b>인구 지도</b>를 작전 도구로 쓰며 자료를 해석해요.</li><li>학생이 <b>자기 관심 분야를 조사해 지도 문제를 직접 만들고</b>, 서로의 문제로 대결해요.</li><li>반 전체 사례를 <b>한 지도에 모아</b> 공간적 패턴을 찾아요.</li></ul>' +
+      '<h3>자료 출처</h3><ul><li>인구 자료: 각 나라 인구조사 (미국 2020, 멕시코 2020, 과테말라 2018, 쿠바 2012, 도미니카공화국 2006 가구 조사, 콜롬비아 2018, 베네수엘라 2011, 에콰도르 2022, 페루 2017, 볼리비아 2012, 트리니다드토바고 2011, 가이아나 2012, 브라질 2022, 파라과이 2022, 칠레 2017, 아르헨티나 2022, 우루과이 2011). 위키백과 ‘Ethnic groups in Latin America’ 정리표 참고. 나라마다 묻는 방식이 달라 직접 비교할 때 주의해요.</li><li>추정값(지도에 ‘추정’으로 표시): 인구 조사에서 묻지 않은 항목은 CIA World Factbook의 민족 구성 추정치를 썼어요 (멕시코 메스티소 62%·유럽계 10%, 볼리비아 유럽계 5%·아프리카계 1%, 아르헨티나 유럽계·메스티소 97%).</li><li>지도: Natural Earth (world-atlas)</li><li>제작: 생성형 AI(Claude)를 활용한 바이브 코딩. 파일 하나(<code>index.html</code>)로 GitHub Pages에 올려 써요.</li></ul>' +
+      '<h3>문제를 바꾸고 싶다면</h3><p><code>index.html</code>을 열어 위쪽 <code>DEFAULT_SET</code>을 고치거나, 출제실에서 만든 문제 코드를 ‘반 문제집 만들기’에 붙여 넣으면 돼요.</p></div>';
+  }
+
+  // 시작
+  if (hashSet()) go("home");
+  else if (S.screen && screens[S.screen] && S.screen !== "teacher" && !(S.screen === "round" && !S.play)) go(S.screen);
+  else go("home");
+})();
+</script>
+</body>
+</html>
